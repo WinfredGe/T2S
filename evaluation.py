@@ -426,7 +426,7 @@ def evaluate_data(args, ori_data, gen_data):
 
 parser = argparse.ArgumentParser(description="Train flow matching model")
 parser.add_argument('--method_list', type=str, default='MSE,WAPE,MRR',
-                        help='评估方法列表[C-FID,MDD,ACD,SD,KD,ED,DTW,t-SNE,Distribution,MSE,MAE,RMSE,WAPE,CRPS,MAP,MRR,NDCG]')
+                        help='metric list [C-FID,MDD,ACD,SD,KD,ED,DTW,t-SNE,Distribution,MSE,MAE,RMSE,WAPE,CRPS,MAP,MRR,NDCG]')
 parser.add_argument('--save_path', type=str, default='./results/denoiser_results', help='Denoiser Model save path')
 parser.add_argument('--dataset_name', type=str, default='ETTh1_96', help='dataset name')
 parser.add_argument('--backbone', type=str, default='flowmatching', help='flowmatching or DDPM or EDM')

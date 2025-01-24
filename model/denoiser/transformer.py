@@ -16,12 +16,11 @@ def get_sinusoidal_positional_embeddings(num_positions, d_model):
     div_term = torch.exp(torch.arange(0, d_model, 2) * -(math.log(10000.0) / d_model)).unsqueeze(
         0)  # shape: (1, d_model/2)
 
-    # 计算编码
     pos_embedding = torch.zeros(num_positions, d_model)
-    pos_embedding[:, 0::2] = torch.sin(position * div_term)  # 奇数维度
-    pos_embedding[:, 1::2] = torch.cos(position * div_term)  # 偶数维度
+    pos_embedding[:, 0::2] = torch.sin(position * div_term)
+    pos_embedding[:, 1::2] = torch.cos(position * div_term)
 
-    return pos_embedding.unsqueeze(0)  # 为 batch size 添加一维
+    return pos_embedding.unsqueeze(0)
 
 class TimeEmbedding(nn.Module):
     def __init__(self, dim):
@@ -29,21 +28,15 @@ class TimeEmbedding(nn.Module):
         self.dim = dim
         assert dim % 2 == 0, "Dimension must be even"
     def forward(self, t):
-        # 扩展时间尺度
         t = t * 100.0
         t = t.unsqueeze(-1)
 
-        # 生成频率
         freqs = torch.pow(10000, torch.linspace(0, 1, self.dim // 2)).to(t.device)
 
-        # 计算sin和cos嵌入
         sin_emb = torch.sin(t[:, None] / freqs)
         cos_emb = torch.cos(t[:, None] / freqs)
-        # 合并sin和cos嵌入
         embedding = torch.cat([sin_emb, cos_emb], dim=-1)
         embedding = embedding.squeeze(1)
-
-        # 通过MLP进行处理
         return embedding
 
 ################################################
@@ -57,8 +50,8 @@ class LatentEmbedding(nn.Module):
         self.embedding2d = nn.Conv2d(
             in_channels=1,
             out_channels=embed_dim,
-            kernel_size=(6, 6),  # 卷积窗口为 6x6
-            stride=(6, 6),  # 每隔 6 个单位进行一次卷积
+            kernel_size=(6, 6),
+            stride=(6, 6),
         )
 
     def forward(self, x):
@@ -74,10 +67,10 @@ class InverseLatentEmbedding(nn.Module):
         super().__init__()
         self.dim = embed_dim
         self.inv_embedding2d = nn.ConvTranspose2d(
-            in_channels=embed_dim,    # 输入通道数为 embed_dim
-            out_channels=1,           # 输出通道数为 1
-            kernel_size=(6, 6),       # 卷积窗口为 6x6
-            stride=(6, 6),            # 每隔 6 个单位进行一次卷积
+            in_channels=embed_dim,
+            out_channels=1,
+            kernel_size=(6, 6),
+            stride=(6, 6),
         )
         self.fc1 = nn.Linear(60, 128)
         self.fc2 = nn.Linear(128, 64)

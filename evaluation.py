@@ -48,14 +48,12 @@ def calculate_ndcg(ori_data, gen_data, k=None):
     n_batch_size = ori_data.shape[0]
     n_timesteps = ori_data.shape[1]
     n_series = ori_data.shape[2]
-    n_generations = gen_data.shape[3]  # 生成结果的数量
+    n_generations = gen_data.shape[3]
     k = n_generations
 
-    # 计算平均 NDCG
     ndcg_scores = np.zeros(n_batch_size)
 
     for batch_idx in range(n_batch_size):
-        # 计算每个生成序列与真实序列的相似度
         similarities = []
         for gen_idx in range(k):
             real_sequence = ori_data[batch_idx]
@@ -63,10 +61,9 @@ def calculate_ndcg(ori_data, gen_data, k=None):
             similarity = cosine_similarity(real_sequence, generated_sequence)
             similarities.append(np.mean(similarity))
 
-        # 计算 NDCG
         ndcg_scores[batch_idx] = ndcg_at_k(similarities, k)
 
-    ndcg_scores = np.mean(ndcg_scores) #batch_size维度求平均
+    ndcg_scores = np.mean(ndcg_scores)
     return ndcg_scores
 
 ###################################################
@@ -75,14 +72,12 @@ def calculate_ndcg(ori_data, gen_data, k=None):
 
 def calculate_mrr(ori_data, gen_data, k=None):
     n_batch_size = ori_data.shape[0]
-    n_generations = gen_data.shape[3]  # 生成结果的数量
+    n_generations = gen_data.shape[3]
     k = n_generations if k is None else k
 
-    # 计算平均 MRR
     mrr_scores = np.zeros(n_batch_size)
 
     for batch_idx in range(n_batch_size):
-        # 计算每个生成序列与真实序列的相似度
         similarities = []
         for gen_idx in range(k):
             real_sequence = ori_data[batch_idx]
@@ -90,18 +85,16 @@ def calculate_mrr(ori_data, gen_data, k=None):
             similarity = cosine_similarity(real_sequence, generated_sequence)
             similarities.append(np.mean(similarity))
 
-        # 找到第一个相关结果的排名
-        sorted_indices = np.argsort(similarities)[::-1]  # 从高到低排序
+        sorted_indices = np.argsort(similarities)[::-1]
         rank = None
         for idx in sorted_indices:
-            if similarities[idx] > therehold:  # 假设大于therehold的相似度表示相关
-                rank = idx + 1  # 因为索引从0开始，所以加1
+            if similarities[idx] > therehold:
+                rank = idx + 1
                 break
 
-        # 计算 MRR
         mrr_scores[batch_idx] = 1.0 / rank if rank is not None else 0.0
 
-    return np.mean(mrr_scores)  # batch_size维度求平均
+    return np.mean(mrr_scores)
 
 ###################################################
 #                    MAP                          #
@@ -109,14 +102,12 @@ def calculate_mrr(ori_data, gen_data, k=None):
 
 def calculate_map(ori_data, gen_data, k=None):
     n_batch_size = ori_data.shape[0]
-    n_generations = gen_data.shape[3]  # 生成结果的数量
+    n_generations = gen_data.shape[3]
     k = n_generations if k is None else k
 
-    # 计算平均 MAP
     map_scores = np.zeros(n_batch_size)
 
     for batch_idx in range(n_batch_size):
-        # 计算每个生成序列与真实序列的相似度
         similarities = []
         for gen_idx in range(k):
             real_sequence = ori_data[batch_idx]
@@ -124,22 +115,20 @@ def calculate_map(ori_data, gen_data, k=None):
             similarity = cosine_similarity(real_sequence, generated_sequence)
             similarities.append(np.mean(similarity))
 
-        # 计算每个 batch 的 Average Precision (AP)
-        sorted_indices = np.argsort(similarities)[::-1]  # 从高到低排序
+        sorted_indices = np.argsort(similarities)[::-1]
         relevant_count = 0
         precision_sum = 0.0
 
         for rank, idx in enumerate(sorted_indices):
-            if similarities[idx] > therehold:  # 假设大于therehold的相似度表示相关
+            if similarities[idx] > therehold:
                 relevant_count += 1
                 precision_at_rank = relevant_count / (rank + 1)
                 precision_sum += precision_at_rank
 
-        # 计算每个 batch 的 Average Precision
         ap = precision_sum / relevant_count if relevant_count > 0 else 0.0
         map_scores[batch_idx] = ap
 
-    return np.mean(map_scores)  # batch_size维度求平均
+    return np.mean(map_scores)
 
 ###################################################
 #             other reconstruct:CRPS              #
@@ -149,7 +138,7 @@ def calculate_crps(ori_data, gen_data):
     n_samples = ori_data.shape[0]
     n_timesteps = ori_data.shape[1]
     n_series = ori_data.shape[2]
-    n_generations = gen_data.shape[3]  # 生成结果的数量
+    n_generations = gen_data.shape[3]
     crps_values = []
 
     for i in range(n_samples):
@@ -159,27 +148,21 @@ def calculate_crps(ori_data, gen_data):
             crps_list = []
 
             for k in range(n_generations):
-                # 假设 gen_data[i, :, j, k] 是第 k 个生成结果的均值和标准差
-                mean = gen_data[i, :, j, k].mean() # 预测的均值
-                std_dev = gen_data[i, :, j, k].std() # 预测的标准差
+                mean = gen_data[i, :, j, k].mean()
+                std_dev = gen_data[i, :, j, k].std()
                 if std_dev == 0:
                     std_dev += 1e-8
-                    # 计算观测值的 CDF
                 obs_value = ori_data[i, :, j]
-                cdf_obs = np.where(obs_value < mean, 0, 1)  # 观测值的 CDF
+                cdf_obs = np.where(obs_value < mean, 0, 1)
 
-                # 计算预测分布的 CDF
                 cdf_pred = norm.cdf(obs_value, loc=mean, scale=std_dev)
 
-                # CRPS 计算
                 crps = np.mean((cdf_obs - cdf_pred) ** 2)
                 crps_list.append(crps)
 
-            # 对所有生成结果的 CRPS 取平均
             average_crps = np.mean(crps_list)
             total_crps += average_crps
 
-        # 对所有时间序列的 CRPS 取平均
         crps_values.append(total_crps / n_series)
 
     crps_values = np.array(crps_values)
@@ -208,7 +191,6 @@ def evaluate_muldata(args, ori_data, gen_data):
         show_with_end_divider('Error: Generated data not found.')
         return None
 
-    # Execute eval method in method list
     result = {}
 
     if 'CRPS' in method_list:
@@ -235,17 +217,12 @@ def evaluate_muldata(args, ori_data, gen_data):
 
 
 def calculate_fid(act1, act2):
-    # calculate mean and covariance statistics
     mu1, sigma1 = act1.mean(axis=0), np.cov(act1, rowvar=False)
     mu2, sigma2 = act2.mean(axis=0), np.cov(act2, rowvar=False)
-    # calculate sum squared difference between means
     ssdiff = np.sum((mu1 - mu2)**2.0)
-    # calculate sqrt of product between cov
     covmean = sqrtm(sigma1.dot(sigma2))
-    # check and correct imaginary numbers from sqrt
     if np.iscomplexobj(covmean):
         covmean = covmean.real
-    # calculate score
     fid = ssdiff + np.trace(sigma1 + sigma2 - 2.0 * covmean)
     return fid
 
@@ -343,16 +320,15 @@ def calculate_wape(ori_data, gen_data):
             total_absolute_error += np.sum(absolute_error)
             total_actual_value += np.sum(np.abs(ori_data[i, :, j]))
 
-        # 计算 WAPE
         if total_actual_value != 0:
             wape = total_absolute_error / total_actual_value
         else:
-            wape = np.nan  # 避免除以零的情况
+            wape = np.nan
 
         wape_values.append(wape)
 
     wape_values = np.array(wape_values)
-    average_wape = np.nanmean(wape_values)  # 计算平均 WAPE，忽略 NaN
+    average_wape = np.nanmean(wape_values)
     return average_wape
 
 
@@ -375,7 +351,6 @@ def evaluate_data(args, ori_data, gen_data):
         method_list = method_list.strip('[]')
         method_list = [method.strip() for method in method_list.split(',')]
 
-    # Check original data
     if gen_data is None:
         show_with_end_divider('Error: Generated data not found.')
         return None
@@ -384,7 +359,6 @@ def evaluate_data(args, ori_data, gen_data):
         show_with_end_divider('Error: Generated data does not have the same shape with original data.')
         return None
     
-    # Execute eval method in method list
     result = {}
 
     if 'C-FID' in method_list:
@@ -440,7 +414,6 @@ def evaluate_data(args, ori_data, gen_data):
         visualize_tsne(ori_data, gen_data, evaluation_save_path, combined_name)
     if 'Distribution' in method_list:
         visualize_distribution(ori_data, gen_data, evaluation_save_path, combined_name)
-    #print(f'Evaluation denoiser_results:{result}.')
 
     if isinstance(result, dict):
         evaluation_save_path = os.path.join(evaluation_save_path, f'{combined_name}.json')
@@ -491,14 +464,10 @@ for run_index in range(10):
     args.generation_save_path_result = os.path.join(args.generation_save_path, f'run_{run_index}')
     x_1 = np.load(os.path.join(args.generation_save_path_result, 'x_1.npy'))
     x_t = np.load(os.path.join(args.generation_save_path_result, 'x_t.npy'))
-    # print(f'x_1 shape:{x_1.shape}')
-    # print(f'x_t shape:{x_t.shape}')
 
     x_t_expanded = np.expand_dims(x_t, axis=-1)
     all_x_t.append(x_t_expanded)
-    # print(f'x_t_expanded shape: {x_t_expanded.shape}')
 
 x_t_all = np.concatenate(all_x_t, axis=-1)
-# print(f'all_x_t_concatenated shape: {x_t_all.shape}')
 evaluate_muldata(args, ori_data=x_1, gen_data=x_t_all)
 

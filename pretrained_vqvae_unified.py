@@ -19,7 +19,7 @@ def seed_everything(seed_value=42):
         torch.cuda.manual_seed_all(seed_value)
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
-    print(f"随机种子设置为: {seed_value}")
+    print(f"seed: {seed_value}")
 
 
 def plot_comparison(real, reconstructed, save_path):

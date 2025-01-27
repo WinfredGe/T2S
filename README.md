@@ -11,29 +11,4 @@ Use python 3.11 from Conda
 
 - timm
 
-To install all dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-## Datasets
-You can access the well pre-processed datasets by unzip Data.zip and move under `./Data`.
-
-## Checkpoints
-You can access the well checkpoints by unzip results.zip and move under `./results`.
-
-## test scripts
-'''
-
-python train.py --dataset_name 'exchangerate'
-
-python infer.py --dataset_name 'exchangerate_24' --cfg_scale 7 --total_step 100
-python infer.py --dataset_name 'exchangerate_48' --cfg_scale 12 --total_step 60
-python infer.py --dataset_name 'exchangerate_96' --cfg_scale 5 --total_step 100
-
-python evaluation.py --dataset_name 'exchangerate_24' --cfg_scale 7 --total_step 100
-python evaluation.py --dataset_name 'exchangerate_48' --cfg_scale 12 --total_step 60
-python evaluation.py --dataset_name 'exchangerate_96' --cfg_scale 5 --total_step 100
-
-'''
+## The code will be uploaded soon...

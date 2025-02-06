@@ -174,21 +174,4 @@ def custom_collate_fn(batch):
 
 
 if __name__ == "__main__":
-    train_dataset = torch.load(r'F:\github\Data\global_fixed_train_dataset.pt')
-    train_loader = DataLoader(train_dataset, batch_size=1024, shuffle=True, drop_last=True)
-
-    train_dataset1 = torch.load(r'F:\github\Data\global_fixed_train_dataset.pt')
-    train_dataset2 = torch.load(r'F:\github\Data\global_fixed_train_dataset.pt')
-    train_dataset3 = torch.load(r'F:\github\Data\global_fixed_train_dataset.pt')
-    for i, (batch_text, batch_x, batch_embedding) in enumerate(train_loader):
-        if i == 0:
-            print("Text Batch Shape:", batch_text.shape)
-            print("X Batch Shape:", batch_x.shape)
-            print("Embedding Shape:", batch_embedding.shape)
-    alternating_dataset = AlternatingDataset(train_dataset1, train_dataset2, train_dataset3)
-    print(alternating_dataset)
-    for i, (batch_text, batch_x, batch_embedding) in enumerate(alternating_dataset):
-        if i == 20000:
-            print("Text Batch Shape:", batch_text.shape)
-            print("X Batch Shape:", batch_x.shape)
-            print("Embedding Shape:", batch_embedding.shape)
+    pass

@@ -9,9 +9,25 @@
 
 Use python 3.10 from Conda
 
-- timm
+- torch==2.3.1
+- datasets==2.21.0
+- einops==0.7.0
+- numpy==1.26.4
+- pandas==1.5.3
+- scipy==1.14.1
+- seaborn==0.13.2
+- tqdm==4.66.5
+- transformers==4.47.0
+- timm==1.0.11
+- sentencepiece==0.2.0
+- peft==0.10.0
+- openai==1.35.9
 
+To install all dependencies:
 
+```shell
+pip install -r requirements.txt
+```
 
 ## Get Started
 

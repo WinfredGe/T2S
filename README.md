@@ -16,7 +16,7 @@ Use python 3.10 from Conda
 ## Get Started
 
 1. Install Python 3.10 and PyTorch 2.3.1.
-2. Download the data and checkpoints from [Google Drive](https://drive.google.com/drive/folders/1W2GyFTeDiS5te3PhYJqtZmcCvU4blgoG?usp=sharing) to `./`
+2. Download the data and checkpoints from [Google Drive](https://drive.google.com/drive/folders/1DHjHv3rqMdgJSDQ31B8SvaLBc-_OLpZb?usp=sharing) to `./`
 3. Train and perform inference with the model. We provide the experiment script under the  `./script.sh`. (optional)
 4. You can evaluate the model using  `./scripts_validation_only.sh` or by:
 

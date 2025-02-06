@@ -131,8 +131,8 @@ if __name__ == '__main__':
     parser.add_argument('--usepretrainedvae', default=True, help='pretrained vae')
     parser.add_argument('--backbone', type=str, default='flowmatching', help='flowmatching or DDPM or EDM')
     parser.add_argument('--denoiser', type=str, default='DiT', help='DiT or MLP')
-    parser.add_argument('--cfg_scale', type=float, default=12, help='CFG Scale')
-    parser.add_argument('--total_step', type=int, default=60, help='total step sampled from [0,1]')
+    parser.add_argument('--cfg_scale', type=float, default=7, help='CFG Scale')
+    parser.add_argument('--total_step', type=int, default=100, help='total step sampled from [0,1]')
 
     # for inference
     parser.add_argument('--checkpoint_id', type=int, default=19999,help='model id')

@@ -32,7 +32,7 @@ pip install -r requirements.txt
 ## Get Started
 
 1. Install Python 3.10 and PyTorch 2.3.1.
-2. Download the data and checkpoints from [Google Drive](https://drive.google.com/drive/folders/1DHjHv3rqMdgJSDQ31B8SvaLBc-_OLpZb?usp=sharing) to `./`
+2. Download the [data](https://drive.google.com/file/d/1sAZ8VNain_q4-LegtpRNCh83-dhO1jtm/view?usp=sharing) and [checkpoints](https://drive.google.com/file/d/1ghiepbJFS6DlK9gvgq1dvRla9cgQz56g/view?usp=sharing) from Google Drive to `./`
 3. Train and perform inference with the model. We provide the experiment script under the  `./script.sh`. (optional)
 4. You can evaluate the model using  `./scripts_validation_only.sh` or by:
 

@@ -23,19 +23,7 @@
 
 
 ---
->
->🙋 Please let us know if you find out a mistake or have any suggestions!
->
->🌟 If you find this resource helpful, please consider to star this repository and cite our research:
 
-```
-@inproceedings{ge2025t2s,
-  title={{T2S}: High-resolution Time Series Generation with Text-to-Series Diffusion Models},
-  author={Ge, Yunfeng and Li, Jiawei and Zhao, Yiji and Wen, Haomin and Li, Zhao and Qiu, Meikang and Li, Hongyan and Jin, Ming and Pan, Shirui},
-  booktitle={International Joint Conference on Artificial Intelligence (IJCAI)},
-  year={2025}
-}
-```
 
 ## 💫 Introduction
 T2S is the first domain-agnostic model for text-to-time series generation. This allows ordinary people to describe temporal changes without requiring specialized expertise in a particular field. 
@@ -231,6 +219,17 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 }
 ```
 
+## 🙋 Citation
+> Please let us know if you find out a mistake or have any suggestions!
+> If you find this resource helpful, please consider to star this repository and cite our research:
+```
+@inproceedings{ge2025t2s,
+  title={{T2S}: High-resolution Time Series Generation with Text-to-Series Diffusion Models},
+  author={Ge, Yunfeng and Li, Jiawei and Zhao, Yiji and Wen, Haomin and Li, Zhao and Qiu, Meikang and Li, Hongyan and Jin, Ming and Pan, Shirui},
+  booktitle={International Joint Conference on Artificial Intelligence (IJCAI)},
+  year={2025}
+}
+```
 ## 🌟 Acknowledgement
 
 Our implementation adapts [Time-Series-Library](https://github.com/thuml/Time-Series-Library), [TSGBench](https://github.com/YihaoAng/TSGBench), [TOTEM](https://github.com/SaberaTalukder/TOTEM) and [Meta (Scalable Diffusion Models with Transformers)](https://github.com/facebookresearch/DiT) as the code base and have extensively modified it to our purposes. We thank the authors for sharing their implementations and related resources.

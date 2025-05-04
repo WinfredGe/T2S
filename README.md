@@ -1,65 +1,74 @@
 <div align="center">
-  <!-- <h1><b> T2S </b></h1> -->
-  <!-- <h2><b> T2S </b></h2> -->
-  <h2><b> (IJCAI'25) <span style="color:rgb(185,5,14)">T</span><span style="color:rgb(19,175,85)">2</span><span style="color:rgb(46,96,179)">S</span>: High-resolution Time Series Generation with Text-to-Series Diffusion Models </b></h2>
-</div>
 
-<div align="center">
+<h2><b>(IJCAI'25) <span style="color:rgb(185,5,14)">T</span><span style="color:rgb(19,175,85)">2</span><span style="color:rgb(46,96,179)">S</span>: High-resolution Time Series Generation with Text-to-Series Diffusion Models</b></h2>
 
-![](https://img.shields.io/github/last-commit/WinfredGe/T2S?color=green)
-![](https://img.shields.io/github/stars/WinfredGe/T2S?color=yellow)
-![](https://img.shields.io/github/forks/WinfredGe/T2S?color=lightblue)
-![](https://img.shields.io/badge/PRs-Welcome-green)
-
-</div>
-
-<p align="center">
-    <img src="./figures/logo.png" width="70">
+<p>
+  <img src="./figures/logo.png" width="70">
 </p>
 
-> 1️⃣ T2S is the **first work** for text-to-time series generation with a domain-agnostic approach.
-> 2️⃣ TSFragment-600K is the **first** fragment-level text-time series pairs dataset comprising across 6 classic domains.
+<p>
+  <img src="https://img.shields.io/github/last-commit/WinfredGe/T2S?color=green" />
+  <img src="https://img.shields.io/github/stars/WinfredGe/T2S?color=yellow" />
+  <img src="https://img.shields.io/github/forks/WinfredGe/T2S?color=lightblue" />
+  <img src="https://img.shields.io/badge/PRs-Welcome-green" />
+</p>
 
-## TODO List
-- [x] upload TSFragment-600K to Hugging Face 🤗.
-- [ ] re
-
-## Updates/News:
-
-🚩 **News** (April 2025): T2S has been accpeted by IJCAI 2025!
-
-🚩 **News** (May 2025): [TSFragment-600K](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) dataset is now available on 🤗 Hugging Face.
-
-🚩 **News** (May 2025): [T2S (pretrained LA-VAE)](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) and [T2S-DiT](https://huggingface.co/WinfredGe/T2S-DiT) are available on 🤗 Hugging Face.
-
-🚩 **News** (May 2025): T2S preprint is available on [arXiv](xxx).
+</div>
 
 ---
 
+> ✅ **T2S** is the **first domain-agnostic framework** for text-to-time series generation.  
+> 📊 **TSFragment-600K** is the **first** fragment-level text–time series dataset across 6 classical domains.
+
+---
+
+## 📌 TODO List
+
+- [x] Upload **TSFragment-600K** to Hugging Face 🤗  
+- [ ] Release training & evaluation scripts  
+- [ ] Provide Colab demo  
+
+---
+
+## 🗞️ Updates / News
+
+- 🚩 **April 2025**: **T2S** accepted by *IJCAI 2025*!  
+- 🚩 **May 2025**: [**TSFragment-600K**](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) is now available on 🤗 Hugging Face  
+- 🚩 **May 2025**: Pretrained models [**T2S-LA-VAE**](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) and [**T2S-DiT**](https://huggingface.co/WinfredGe/T2S-DiT) released  
+- 🚩 **May 2025**: T2S preprint now available on [arXiv](xxx)
+
+---
 
 ## 💫 Introduction
-T2S is the first domain-agnostic model for text-to-time series generation. This allows ordinary people to describe temporal changes without requiring specialized expertise in a particular field. 
 
-Application Scenarios:
+**T2S** is the first domain-agnostic model that enables **text-to-time series generation**. It allows users—both non-experts and professionals—to generate high-resolution, semantically aligned time series from natural language descriptions.
 
- (1) Ordinary people can create time series data and engage with data-driven tools without needing advanced skills. This could encourage **broader participation in data analysis**.
+### 🧠 Application Scenarios:
 
- (2) Professionals can use simple textual descriptions to quickly generate time series data that simulate specific system behaviors. This capability supports **rapid prototyping** and analysis of system evolution under different conditions. 
+1. **Inclusive Data Interaction**  
+   Non-experts can describe temporal behaviors and generate synthetic data, democratizing access to data-driven tools.
 
-(3) It can be used for **stress testing** systems, such as creating "an extreme surge in demand" to assess a database’s responsiveness or network elements’  carrying capacity under extreme cases. Note that traditional methods struggle to model these extreme cases because they rely on stationary source data distributions.
+2. **Rapid Prototyping for Professionals**  
+   Experts can use text to quickly simulate system dynamics, accelerating the development of AI/IoT systems.
 
-<p align="center">
-<img src="./figures/method.png" height = "360" alt="" align=center />
-</p>
-
-
-- T2S comprises two key components: (1) T2S Diffusion Transformer and (2) Pretrained Length-Adaptive Variational Autoencoder,  to empower the capability of generating semantically aligned time series of arbitrary lengths.  
-- *TSFragment-600K* comprising over 600,000 fragment-level text-time series pairs. Each captions captures fine-grained temporal morphological characteristics, offering a rich and nuanced representation of the underlying trends.
+3. **Stress Testing**  
+   Simulate edge cases (e.g., "an extreme surge in demand") to evaluate system robustness—beyond what stationary models can do.
 
 <p align="center">
-<img src="./figures/dataset.png" height = "300" alt="" align=center />
+  <img src="./figures/method.png" height="360" />
 </p>
 
+---
+
+## 🧩 Key Components
+
+- **T2S-DiT**: A diffusion-based transformer tailored for conditional generation from natural language.
+- **LA-VAE**: A pretrained **Length-Adaptive Variational Autoencoder** that supports generation of variable-length series.
+- **TSFragment-600K**: A large-scale dataset with 600K fragment-level pairs annotated with **fine-grained morphological captions**.
+
+<p align="center">
+  <img src="./figures/dataset.png" height="300" />
+</p>
 
 
 ## 📑 Datasets

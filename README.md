@@ -4,14 +4,15 @@
   <h2><b> (IJCAI'25) <span style="color:rgb(185,5,14)">T</span><span style="color:rgb(19,175,85)">2</span><span style="color:rgb(46,96,179)">S</span>: High-resolution Time Series Generation with Text-to-Series Diffusion Models </b></h2>
 </div>
 
-
-
 <div align="center">
-![](https://img.shields.io/github/last-commit/WinfredGe/T2S?color=green)
-![](https://img.shields.io/github/stars/WinfredGe/T2S?color=yellow)
-![](https://img.shields.io/github/forks/WinfredGe/T2S?color=lightblue)
+
+![](https://img.shields.io/github/last-commit/KimMeen/Time-LLM?color=green)
+![](https://img.shields.io/github/stars/KimMeen/Time-LLM?color=yellow)
+![](https://img.shields.io/github/forks/KimMeen/Time-LLM?color=lightblue)
 ![](https://img.shields.io/badge/PRs-Welcome-green)
+
 </div>
+
 <p align="center">
     <img src="./figures/logo.png" width="70">
 </p>

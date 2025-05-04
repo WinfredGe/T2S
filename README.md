@@ -45,7 +45,7 @@ Application Scenarios:
 - *TSFragment-600K* comprising over 600,000 fragment-level text-time series pairs. Each captions captures fine-grained temporal morphological characteristics, offering a rich and nuanced representation of the underlying trends.
 
 <p align="center">
-<img src="./figures/dataset.png" height = "190" alt="" align=center />
+<img src="./figures/dataset.png" height = "300" alt="" align=center />
 </p>
 
 
@@ -73,7 +73,7 @@ Data
 │  ├─ embedding_cleaned_electricity_24.csv
 │  ├─ embedding_cleaned_electricity_48.csv
 │  ├─ embedding_cleaned_electricity_96.csv
-...
+│  │ ...
 │  ├─ embedding_cleaned_traffic_24.csv
 │  ├─ embedding_cleaned_traffic_48.csv
 │  └─ embedding_cleaned_traffic_96.csv
@@ -86,7 +86,7 @@ Data
    ├─ embedding_cleaned_Climate_24.csv
    ├─ embedding_cleaned_Climate_48.csv
    ├─ embedding_cleaned_Climate_96.csv
-...
+   │ ...
    ├─ embedding_cleaned_SocialGood_24.csv
    ├─ embedding_cleaned_SocialGood_48.csv
    └─ embedding_cleaned_SocialGood_96.csv

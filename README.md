@@ -52,15 +52,16 @@ Application Scenarios:
 
 ## 📑 Datasets
 
-[TSFragment-600K dataset](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) is available on 🤗 Hugging Face.
-
-You can follow the following usage example to call TSFragment-600K dataset, or download all well pre-processed [[three levels datasets]](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing), then place them under `./Data` directory.
-
+- [TSFragment-600K dataset](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) is available on 🤗 Hugging Face.
+You can follow the usage example to call TSFragment-600K dataset:
 ```
 from datasets import load_dataset
 ds = load_dataset("WinfredGe/TSFragment-600K")
 ```
 
+- You have access to download all well pre-processed [[three levels datasets]](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing)(include TSFragment-600K dataset), then place them under `./Data` directory.
+
+- Dataset Structure:
 ```
 Data
 ├─ TSFragment-600K

@@ -73,3 +73,4 @@ class MinMaxScaler():
         data *= self.range
         data += self.mini
         return data
+

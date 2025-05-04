@@ -86,7 +86,7 @@ To install all dependencies:
 pip install -r requirements.txt
 ```
 
-## 📚 Datasets
+## 📑 Datasets
 
 [TSFragment-600K dataset](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) is available on 🤗 Hugging Face.
 
@@ -144,9 +144,9 @@ Data
    └─ embedding_cleaned_SocialGood_96.csv
 ```
 
-We also open source the dataset construction and evaluation pipeline in `./Dataset_Construction_Pipeline/` folder.
+**Note:** We also open source the dataset construction and evaluation pipeline in `./Dataset_Construction_Pipeline/` folder.
 
-## Get Started
+## 🚀 Get Started
 
 Core Structure Overview:
 
@@ -184,19 +184,26 @@ pip install -r requirements.txt
 
 **Note: Time-MoE requires `torch==2.3.1` .**
 
+2. Download the [*TSFragment-600K* data](https://huggingface.co/datasets/WinfredGe/TSFragment-600K)
 
 
-1. Install Python 3.10 and PyTorch 2.3.1.
-2. Download the [*TSFragment-600K* data](https://drive.google.com/file/d/1YEe66ptAl52yp17MXVO9xWOe5rS1yUyZ/view?usp=sharing) and [checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) from Google Drive to `./`
+2.  and [T2S checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) from Google Drive to `./`
 3. Train and perform inference with the model. We provide the experiment script under the  `./script.sh`. (optional)
 4. You can evaluate the model using  `./scripts_validation_only.sh` directly.
 `
 
-## Detailed usage
-
 Please refer to ```pretrained_lavae_unified.py```, ```train.py```, ```infer.py``` and ```evaluation.py``` for the detailed description of each hyperparameter.
 
-## Further Reading
+
+
+## 📈 Quick Reproduce
+
+1. Install Python 3.10, and then install the dependencies in `requirements.txt`.
+2. Download the [*TSFragment-600K* data](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) and [T2S checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) to `./`
+3. Evaluate the model using  `./scripts_validation_only.sh` directly.
+
+
+## 📚Further Reading
 1, [**Position Paper: What Can Large Language Models Tell Us about Time Series Analysis**](https://arxiv.org/abs/2402.02713), in *ICML* 2024.
 
 **Authors**: Ming Jin, Yifan Zhang, Wei Chen, Kexin Zhang, Yuxuan Liang*, Bin Yang, Jindong Wang, Shirui Pan, Qingsong Wen*
@@ -235,10 +242,10 @@ Please refer to ```pretrained_lavae_unified.py```, ```train.py```, ```infer.py``
 }
 ```
 
-## Acknowledgement
+## 🌟 Acknowledgement
 
 Our implementation adapts [Time-Series-Library](https://github.com/thuml/Time-Series-Library), [TSGBench](https://github.com/YihaoAng/TSGBench), [TOTEM](https://github.com/SaberaTalukder/TOTEM) and [Meta (Scalable Diffusion Models with Transformers)](https://github.com/facebookresearch/DiT) as the code base and have extensively modified it to our purposes. We thank the authors for sharing their implementations and related resources.
 
-## License
+## 🆑 License
 
 This project is licensed under the Apache-2.0 License.

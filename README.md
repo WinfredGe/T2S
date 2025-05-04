@@ -131,7 +131,7 @@ pip install -r requirements.txt
 
 **Note: T2S requires `torch==2.3.1` .**
 
-### Datasets
+### Prepare Datasets
 - You can access all well pre-processed [three level datasets](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing).
 - You can also download our [*TSFragment-600K* data](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) only.
 
@@ -147,7 +147,7 @@ For the more detailed customize, please refer to the arg description of each hyp
 > [!NOTE]
 > LA-VAE use mix_train to convert arbitrary length data into the unified representation.
 
-### Train and Inference
+### Train and Inference 
 - We provide some train and inference experiment pipeline in `./script.sh`.
 - [Example] Running the following command to train and inference on ETTh1.
 ```
@@ -160,7 +160,7 @@ python infer.py --dataset_name 'ETTh1_96' --cfg_scale 9.0 --total_step 10
 ```
 > [!NOTE]
 > You can tune the hyperparameters to suit your needs, such as cfg_scale and total_step.
-> Please refer to ```train.py``` and ```infer.py``` for the detailed description of customized hyperparameter settings.
+> Please refer to ```train.py``` and ```infer.py``` for more detailed description of customized hyperparameter settings.
 
 
 ### Evaluate

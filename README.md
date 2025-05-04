@@ -32,7 +32,7 @@
 - 🚩 **May 2025**: Pretrained models [**T2S-LA-VAE**](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) and [**T2S-DiT**](https://huggingface.co/WinfredGe/T2S-DiT) released  
 - 🚩 **May 2025**: T2S preprint now available on [arXiv](xxx)
 
-<p align="center"><strong>⋆⋅☆⋅⋆   SECTION BREAK   ⋆⋅☆⋅⋆</strong></p>
+<p align="center"><strong>⋆⋅☆⋅⋆   About This Work   ⋆⋅☆⋅⋆</strong></p>
 
 
 ## 💫 Introduction

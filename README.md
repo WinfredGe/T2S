@@ -141,7 +141,31 @@ Data
 
 Directory structure Overview:
 
+```
+T2S-main
+├─ pretrained_lavae_unified.py
+├─ train.py
+├─ infer.py
+├─ evaluation.py
+├─ datafactory
+│  ├─ dataloader.py
+│  └─ dataset.py
+├─ model
+│  ├─ pretrained
+│  │  ├─ core.py
+│  │  └─ vqvae.py
+│  ├─ denoiser
+│  │  ├─ mlp.py
+│  │  └─ transformer.py
+│  └─ backbone
+│     ├─ DDPM.py
+│     └─ rectified_flow.py
+└─ evaluate
+   ├─ feature_based_measures.py
+   ├─ ts2vec.py
+   └─ utils.py
 
+```
 
 1. Install Python 3.10 and PyTorch 2.3.1.
 2. Download the [*TSFragment-600K* data](https://drive.google.com/file/d/1YEe66ptAl52yp17MXVO9xWOe5rS1yUyZ/view?usp=sharing) and [checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) from Google Drive to `./`

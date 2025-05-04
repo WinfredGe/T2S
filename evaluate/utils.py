@@ -1,5 +1,4 @@
 import os
-# import mgzip
 import pickle
 import json
 import torch

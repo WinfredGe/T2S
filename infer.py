@@ -185,4 +185,3 @@ if __name__ == '__main__':
 
         ani = FuncAnimation(fig, update, init_func=init, frames=150, interval=500, blit=True)
         ani.save(f"animation_{args.backbone}.gif", fps=25, writer="imagemagick")
-

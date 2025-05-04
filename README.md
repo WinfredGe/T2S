@@ -1,7 +1,8 @@
 <div align="center">
   <!-- <h1><b> T2S </b></h1> -->
   <!-- <h2><b> T2S </b></h2> -->
-  <h2><b> (IJCAI'25) T2S: High-resolution Time Series Generation with Text-to-Series Diffusion Models </b></h2>
+  <h2><b> (IJCAI'25) <span style="color:rgb(185,5,14)">T</span><span style="color:rgb(19,175,85)">2</span><span style="color:rgb(46,96,179)">S</span>
+: High-resolution Time Series Generation with Text-to-Series Diffusion Models </b></h2>
 </div>
 
 

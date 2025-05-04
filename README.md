@@ -32,7 +32,8 @@
 - 🚩 **May 2025**: Pretrained models [**T2S-LA-VAE**](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) and [**T2S-DiT**](https://huggingface.co/WinfredGe/T2S-DiT) released  
 - 🚩 **May 2025**: T2S preprint now available on [arXiv](xxx)
 
-💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
+<p align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=2000&pause=1000&color=36BCF7&center=true&width=435&lines=▼+Scroll+down+to+explore+more..."></p>
+
 ## 💫 Introduction
 
 **T2S** is the first domain-agnostic model that enables **text-to-time series generation**. It allows users—both non-experts and professionals—to generate high-resolution, semantically aligned time series from natural language descriptions.

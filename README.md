@@ -15,12 +15,9 @@
 
 </div>
 
----
 
 > ✅ **T2S** is the **first domain-agnostic framework** for text-to-time series generation.  
 > 📊 **TSFragment-600K** is the **first** fragment-level text–time series dataset across 6 classical domains.
-
----
 
 ## 📌 TODO List
 
@@ -28,7 +25,6 @@
 - [ ] Release training & evaluation scripts  
 - [ ] Provide Colab demo  
 
----
 
 ## 🗞️ Updates / News
 
@@ -37,13 +33,12 @@
 - 🚩 **May 2025**: Pretrained models [**T2S-LA-VAE**](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) and [**T2S-DiT**](https://huggingface.co/WinfredGe/T2S-DiT) released  
 - 🚩 **May 2025**: T2S preprint now available on [arXiv](xxx)
 
----
 
 ## 💫 Introduction
 
 **T2S** is the first domain-agnostic model that enables **text-to-time series generation**. It allows users—both non-experts and professionals—to generate high-resolution, semantically aligned time series from natural language descriptions.
 
-### 🧠 Application Scenarios:
+###  Application Scenarios:
 
 1. **Inclusive Data Interaction**  
    Non-experts can describe temporal behaviors and generate synthetic data, democratizing access to data-driven tools.
@@ -58,9 +53,7 @@
   <img src="./figures/method.png" height="360" />
 </p>
 
----
-
-## 🧩 Key Components
+### Key Components
 
 - **T2S-DiT**: A diffusion-based transformer tailored for conditional generation from natural language.
 - **LA-VAE**: A pretrained **Length-Adaptive Variational Autoencoder** that supports generation of variable-length series.
@@ -69,7 +62,6 @@
 <p align="center">
   <img src="./figures/dataset.png" height="300" />
 </p>
-
 
 ## 📑 Datasets
 

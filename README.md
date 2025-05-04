@@ -60,10 +60,6 @@ Application Scenarios:
 </p>
 
 
-## Video
-
-
-
 
 ## Requirements
 

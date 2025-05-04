@@ -129,7 +129,7 @@ T2S-main
 pip install -r requirements.txt
 ```
 
-**Note: Time-MoE requires `torch==2.3.1` .**
+**Note: T2S requires `torch==2.3.1` .**
 
 ### Datasets
 - You can access all well pre-processed [three level datasets](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing).

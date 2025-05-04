@@ -131,11 +131,11 @@ pip install -r requirements.txt
 
 **Note: T2S requires `torch==2.3.1` .**
 
-### Prepare Datasets
+###  ② Prepare Datasets
 - You can access all well pre-processed [three level datasets](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing).
 - You can also download our [*TSFragment-600K* data](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) only.
 
-### Pretrain LA-VAE
+### ③ Pretrain LA-VAE
 
 - You can access the well pretrained LA-VAE from [T2S checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) in the folder `./results/saved_pretrained_models/`
 - Running the follow command to pretrain your own LA-VAE on different datasets. For example,
@@ -147,7 +147,7 @@ For the more detailed customize, please refer to the arg description of each hyp
 > [!NOTE]
 > LA-VAE use mix_train to convert arbitrary length data into the unified representation.
 
-### Train and Inference 
+### ④ Train and Inference 
 - We provide some train and inference experiment pipeline in `./script.sh`.
 - [Example] Running the following command to train and inference on ETTh1.
 ```

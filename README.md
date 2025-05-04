@@ -87,7 +87,55 @@ pip install -r requirements.txt
 ```
 
 ## Datasets
-You can access all well pre-processed three levels datasets from [[Google Drive]](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing), then place the downloaded contents under `./`. We also open source the dataset construction and evaluation pipeline [[Dataset Construction Pipeline]](https://drive.google.com/file/d/1fTfE634h_n1JsrLFwl1B3uUH06muHwjw/view?usp=sharing).
+You can access all well pre-processed three levels datasets from [[Google Drive]](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing), then place the downloaded contents under `./Data`. We also open source the dataset construction and evaluation pipeline [[Dataset Construction Pipeline]](https://drive.google.com/file/d/1fTfE634h_n1JsrLFwl1B3uUH06muHwjw/view?usp=sharing).
+
+Download the datasets and put them under the `./Data` directory.
+
+Data
+├─ TSFragment-600K
+│  ├─ embedding_cleaned_airquality_24.csv
+│  ├─ embedding_cleaned_airquality_48.csv
+│  ├─ embedding_cleaned_airquality_96.csv
+│  ├─ embedding_cleaned_electricity_24.csv
+│  ├─ embedding_cleaned_electricity_48.csv
+│  ├─ embedding_cleaned_electricity_96.csv
+│  ├─ embedding_cleaned_ETTh1s_24.csv
+│  ├─ embedding_cleaned_ETTh1s_48.csv
+│  ├─ embedding_cleaned_ETTh1s_96.csv
+│  ├─ embedding_cleaned_ETTh1_24.csv
+│  ├─ embedding_cleaned_ETTh1_48.csv
+│  ├─ embedding_cleaned_ETTh1_96.csv
+│  ├─ embedding_cleaned_ETTm1_24.csv
+│  ├─ embedding_cleaned_ETTm1_48.csv
+│  ├─ embedding_cleaned_ETTm1_96.csv
+│  ├─ embedding_cleaned_exchangerate_24.csv
+│  ├─ embedding_cleaned_exchangerate_48.csv
+│  ├─ embedding_cleaned_exchangerate_96.csv
+│  ├─ embedding_cleaned_traffic_24.csv
+│  ├─ embedding_cleaned_traffic_48.csv
+│  └─ embedding_cleaned_traffic_96.csv
+├─ SUSHI
+│  └─ embedding_cleaned_SUSHI.csv
+└─ MMD
+   ├─ embedding_cleaned_Agriculture_24.csv
+   ├─ embedding_cleaned_Agriculture_48.csv
+   ├─ embedding_cleaned_Agriculture_96.csv
+   ├─ embedding_cleaned_Climate_24.csv
+   ├─ embedding_cleaned_Climate_48.csv
+   ├─ embedding_cleaned_Climate_96.csv
+   ├─ embedding_cleaned_Economy_24.csv
+   ├─ embedding_cleaned_Economy_48.csv
+   ├─ embedding_cleaned_Economy_96.csv
+   ├─ embedding_cleaned_Energy_24.csv
+   ├─ embedding_cleaned_Energy_48.csv
+   ├─ embedding_cleaned_Energy_96.csv
+   ├─ embedding_cleaned_Health_US_24.csv
+   ├─ embedding_cleaned_Health_US_48.csv
+   ├─ embedding_cleaned_Health_US_96.csv
+   ├─ embedding_cleaned_SocialGood_24.csv
+   ├─ embedding_cleaned_SocialGood_48.csv
+   └─ embedding_cleaned_SocialGood_96.csv
+
 
 ## Get Started
 

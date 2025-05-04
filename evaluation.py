@@ -310,4 +310,3 @@ for run_index in range(10):
 
 x_t_all = np.concatenate(all_x_t, axis=-1)
 evaluate_muldata(args, ori_data=x_1, gen_data=x_t_all)
-

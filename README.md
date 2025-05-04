@@ -22,8 +22,7 @@
 ## 📌 TODO List
 
 - [x] Upload **TSFragment-600K** to Hugging Face 🤗  
-- [ ] Release training & evaluation scripts  
-- [ ] Provide Colab demo  
+- [ ] Provide demo  
 
 
 ## 🗞️ Updates / News
@@ -33,6 +32,7 @@
 - 🚩 **May 2025**: Pretrained models [**T2S-LA-VAE**](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) and [**T2S-DiT**](https://huggingface.co/WinfredGe/T2S-DiT) released  
 - 🚩 **May 2025**: T2S preprint now available on [arXiv](xxx)
 
+---
 
 ## 💫 Introduction
 

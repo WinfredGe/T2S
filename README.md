@@ -90,7 +90,7 @@ pip install -r requirements.txt
 You can access all well pre-processed three levels datasets from [[Google Drive]](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing), then place the downloaded contents under `./Data`. We also open source the dataset construction and evaluation pipeline [[Dataset Construction Pipeline]](https://drive.google.com/file/d/1fTfE634h_n1JsrLFwl1B3uUH06muHwjw/view?usp=sharing).
 
 Download the datasets and put them under the `./Data` directory.
-
+```
 Data
 ├─ TSFragment-600K
 │  ├─ embedding_cleaned_airquality_24.csv
@@ -135,7 +135,7 @@ Data
    ├─ embedding_cleaned_SocialGood_24.csv
    ├─ embedding_cleaned_SocialGood_48.csv
    └─ embedding_cleaned_SocialGood_96.csv
-
+```
 
 ## Get Started
 

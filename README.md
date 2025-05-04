@@ -18,10 +18,21 @@
 </p>
 
 > 1️⃣ T2S is the **first work** for text-to-time series generation with a domain-agnostic approach.
-
 > 2️⃣ TSFragment-600K is the **first** fragment-level text-time series pairs dataset comprising across 6 classic domains.
 
+## TODO List
+- [x] upload TSFragment-600K to Hugging Face 🤗.
+- [ ] 
 
+## Updates/News:
+
+🚩 **News** (April 2025): T2S has been accpeted by IJCAI 2025!
+
+🚩 **News** (May 2025): [TSFragment-600K](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) dataset is now available on 🤗 Hugging Face.
+
+🚩 **News** (May 2025): [T2S (pretrained LA-VAE)](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) and [T2S-DiT](https://huggingface.co/WinfredGe/T2S-DiT) are available on 🤗 Hugging Face.
+
+🚩 **News** (May 2025): T2S preprint is available on [arXiv](xxx).
 ---
 
 

@@ -86,10 +86,17 @@ To install all dependencies:
 pip install -r requirements.txt
 ```
 
-## Datasets
-You can access all well pre-processed three levels datasets from [[Google Drive]](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing), then place the downloaded contents under `./Data`. We also open source the dataset construction and evaluation pipeline [[Dataset Construction Pipeline]](https://drive.google.com/file/d/1fTfE634h_n1JsrLFwl1B3uUH06muHwjw/view?usp=sharing).
+## 📚 Datasets
 
-Download the datasets and put them under the `./Data` directory.
+[TSFragment-600K dataset](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) is available on 🤗 Hugging Face.
+
+You can follow the following usage example to call TSFragment-600K dataset, or download all well pre-processed [[three levels datasets]](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing), then place them under `./Data` directory.
+
+```
+from datasets import load_dataset
+ds = load_dataset("WinfredGe/TSFragment-600K")
+```
+
 ```
 Data
 ├─ TSFragment-600K
@@ -137,9 +144,11 @@ Data
    └─ embedding_cleaned_SocialGood_96.csv
 ```
 
+We also open source the dataset construction and evaluation pipeline in `./Dataset_Construction_Pipeline/` folder.
+
 ## Get Started
 
-Directory structure Overview:
+Core Structure Overview:
 
 ```
 T2S-main
@@ -166,6 +175,16 @@ T2S-main
    └─ utils.py
 
 ```
+
+1. Install Python 3.10, and then install the dependencies:
+
+```shell
+pip install -r requirements.txt
+```
+
+**Note: Time-MoE requires `torch==2.3.1` .**
+
+
 
 1. Install Python 3.10 and PyTorch 2.3.1.
 2. Download the [*TSFragment-600K* data](https://drive.google.com/file/d/1YEe66ptAl52yp17MXVO9xWOe5rS1yUyZ/view?usp=sharing) and [checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) from Google Drive to `./`

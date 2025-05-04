@@ -139,6 +139,10 @@ Data
 
 ## Get Started
 
+Directory structure Overview:
+
+
+
 1. Install Python 3.10 and PyTorch 2.3.1.
 2. Download the [*TSFragment-600K* data](https://drive.google.com/file/d/1YEe66ptAl52yp17MXVO9xWOe5rS1yUyZ/view?usp=sharing) and [checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) from Google Drive to `./`
 3. Train and perform inference with the model. We provide the experiment script under the  `./script.sh`. (optional)
@@ -150,34 +154,7 @@ Data
 Please refer to ```pretrained_lavae_unified.py```, ```train.py```, ```infer.py``` and ```evaluation.py``` for the detailed description of each hyperparameter.
 
 ## Further Reading
-1, [**TimeMixer++: A General Time Series Pattern Machine for Universal Predictive Analysis**](https://arxiv.org/abs/2410.16032), in *arXiv* 2024.
-[\[GitHub Repo\]](https://github.com/kwuking/TimeMixer/blob/main/README.md)
-
-**Authors**: Shiyu Wang, Jiawei Li, Xiaoming Shi, Zhou Ye, Baichuan Mo, Wenze Lin, Shengtong Ju, Zhixuan Chu, Ming Jin
-
-```bibtex
-@article{wang2024timemixer++,
-  title={TimeMixer++: A General Time Series Pattern Machine for Universal Predictive Analysis},
-  author={Wang, Shiyu and Li, Jiawei and Shi, Xiaoming and Ye, Zhou and Mo, Baichuan and Lin, Wenze and Ju, Shengtong and Chu, Zhixuan and Jin, Ming},
-  journal={arXiv preprint arXiv:2410.16032},
-  year={2024}
-}
-```
-
-2, [**Foundation Models for Time Series Analysis: A Tutorial and Survey**](https://arxiv.org/pdf/2403.14735), in *KDD* 2024.
-
-**Authors**: Yuxuan Liang, Haomin Wen, Yuqi Nie, Yushan Jiang, Ming Jin, Dongjin Song, Shirui Pan, Qingsong Wen*
-
-```bibtex
-@inproceedings{liang2024foundation,
-  title={Foundation models for time series analysis: A tutorial and survey},
-  author={Liang, Yuxuan and Wen, Haomin and Nie, Yuqi and Jiang, Yushan and Jin, Ming and Song, Dongjin and Pan, Shirui and Wen, Qingsong},
-  booktitle={ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2024)},
-  year={2024}
-}
-```
-
-3, [**Position Paper: What Can Large Language Models Tell Us about Time Series Analysis**](https://arxiv.org/abs/2402.02713), in *ICML* 2024.
+1, [**Position Paper: What Can Large Language Models Tell Us about Time Series Analysis**](https://arxiv.org/abs/2402.02713), in *ICML* 2024.
 
 **Authors**: Ming Jin, Yifan Zhang, Wei Chen, Kexin Zhang, Yuxuan Liang*, Bin Yang, Jindong Wang, Shirui Pan, Qingsong Wen*
 
@@ -189,46 +166,28 @@ Please refer to ```pretrained_lavae_unified.py```, ```train.py```, ```infer.py``
   year={2024}
 }
 ```
+2, [**A Survey on Diffusion Models for Time Series and Spatio-Temporal Data**](https://arxiv.org/abs/2404.18886), in *arXiv* 2024.
+[\[GitHub Repo\]](https://github.com/yyysjz1997/Awesome-TimeSeries-SpatioTemporal-Diffusion-Model/blob/main/README.md)
 
-4, [**Large Models for Time Series and Spatio-Temporal Data: A Survey and Outlook**](https://arxiv.org/abs/2310.10196), in *arXiv* 2023.
-[\[GitHub Repo\]](https://github.com/qingsongedu/Awesome-TimeSeries-SpatioTemporal-LM-LLM)
-
-**Authors**: Ming Jin, Qingsong Wen*, Yuxuan Liang, Chaoli Zhang, Siqiao Xue, Xue Wang, James Zhang, Yi Wang, Haifeng Chen, Xiaoli Li (IEEE Fellow), Shirui Pan*, Vincent S. Tseng (IEEE Fellow), Yu Zheng (IEEE Fellow), Lei Chen (IEEE Fellow), Hui Xiong (IEEE Fellow)
+**Authors**: Yiyuan Yang, Ming Jin, Haomin Wen, Chaoli Zhang, Yuxuan Liang, Lintao Ma, Yi Wang, Chenghao Liu, Bin Yang, Zenglin Xu, Jiang Bian, Shirui Pan, Qingsong Wen
 
 ```bibtex
-@article{jin2023lm4ts,
-  title={Large Models for Time Series and Spatio-Temporal Data: A Survey and Outlook}, 
-  author={Ming Jin and Qingsong Wen and Yuxuan Liang and Chaoli Zhang and Siqiao Xue and Xue Wang and James Zhang and Yi Wang and Haifeng Chen and Xiaoli Li and Shirui Pan and Vincent S. Tseng and Yu Zheng and Lei Chen and Hui Xiong},
-  journal={arXiv preprint arXiv:2310.10196},
-  year={2023}
+@article{yang2024survey,
+  title={A survey on diffusion models for time series and spatio-temporal data},
+  author={Yang, Yiyuan and Jin, Ming and Wen, Haomin and Zhang, Chaoli and Liang, Yuxuan and Ma, Lintao and Wang, Yi and Liu, Chenghao and Yang, Bin and Xu, Zenglin and others},
+  journal={arXiv preprint arXiv:2404.18886},
+  year={2024}
 }
 ```
+3, [**Foundation Models for Time Series Analysis: A Tutorial and Survey**](https://arxiv.org/pdf/2403.14735), in *KDD* 2024.
 
-
-5, [**Transformers in Time Series: A Survey**](https://arxiv.org/abs/2202.07125), in IJCAI 2023.
-[\[GitHub Repo\]](https://github.com/qingsongedu/time-series-transformers-review)
-
-**Authors**: Qingsong Wen, Tian Zhou, Chaoli Zhang, Weiqi Chen, Ziqing Ma, Junchi Yan, Liang Sun
+**Authors**: Yuxuan Liang, Haomin Wen, Yuqi Nie, Yushan Jiang, Ming Jin, Dongjin Song, Shirui Pan, Qingsong Wen*
 
 ```bibtex
-@inproceedings{wen2023transformers,
-  title={Transformers in time series: A survey},
-  author={Wen, Qingsong and Zhou, Tian and Zhang, Chaoli and Chen, Weiqi and Ma, Ziqing and Yan, Junchi and Sun, Liang},
-  booktitle={International Joint Conference on Artificial Intelligence(IJCAI)},
-  year={2023}
-}
-```
-
-6, [**TimeMixer: Decomposable Multiscale Mixing for Time Series Forecasting**](https://openreview.net/pdf?id=7oLshfEIC2), in ICLR 2024.
-[\[GitHub Repo\]](https://github.com/kwuking/TimeMixer)
-
-**Authors**: Shiyu Wang, Haixu Wu, Xiaoming Shi, Tengge Hu, Huakun Luo, Lintao Ma, James Y. Zhang, Jun Zhou 
-
-```bibtex
-@inproceedings{wang2023timemixer,
-  title={TimeMixer: Decomposable Multiscale Mixing for Time Series Forecasting},
-  author={Wang, Shiyu and Wu, Haixu and Shi, Xiaoming and Hu, Tengge and Luo, Huakun and Ma, Lintao and Zhang, James Y and ZHOU, JUN},
-  booktitle={International Conference on Learning Representations (ICLR)},
+@inproceedings{liang2024foundation,
+  title={Foundation models for time series analysis: A tutorial and survey},
+  author={Liang, Yuxuan and Wen, Haomin and Nie, Yuqi and Jiang, Yushan and Jin, Ming and Song, Dongjin and Pan, Shirui and Wen, Qingsong},
+  booktitle={ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2024)},
   year={2024}
 }
 ```

@@ -37,7 +37,7 @@
 }
 ```
 
-## Introduction
+## 💫 Introduction
 T2S is the first domain-agnostic model for text-to-time series generation. This allows ordinary people to describe temporal changes without requiring specialized expertise in a particular field. 
 
 Application Scenarios:
@@ -62,30 +62,6 @@ Application Scenarios:
 
 
 
-## Requirements
-
-Use python 3.10 from Conda
-
-- torch==2.3.1
-- datasets==2.21.0
-- einops==0.7.0
-- numpy==1.26.4
-- pandas==1.5.3
-- scipy==1.14.1
-- seaborn==0.13.2
-- tqdm==4.66.5
-- transformers==4.47.0
-- timm==1.0.11
-- sentencepiece==0.2.0
-- peft==0.10.0
-- openai==1.35.9
-
-To install all dependencies:
-
-```shell
-pip install -r requirements.txt
-```
-
 ## 📑 Datasets
 
 [TSFragment-600K dataset](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) is available on 🤗 Hugging Face.
@@ -106,18 +82,7 @@ Data
 │  ├─ embedding_cleaned_electricity_24.csv
 │  ├─ embedding_cleaned_electricity_48.csv
 │  ├─ embedding_cleaned_electricity_96.csv
-│  ├─ embedding_cleaned_ETTh1s_24.csv
-│  ├─ embedding_cleaned_ETTh1s_48.csv
-│  ├─ embedding_cleaned_ETTh1s_96.csv
-│  ├─ embedding_cleaned_ETTh1_24.csv
-│  ├─ embedding_cleaned_ETTh1_48.csv
-│  ├─ embedding_cleaned_ETTh1_96.csv
-│  ├─ embedding_cleaned_ETTm1_24.csv
-│  ├─ embedding_cleaned_ETTm1_48.csv
-│  ├─ embedding_cleaned_ETTm1_96.csv
-│  ├─ embedding_cleaned_exchangerate_24.csv
-│  ├─ embedding_cleaned_exchangerate_48.csv
-│  ├─ embedding_cleaned_exchangerate_96.csv
+...
 │  ├─ embedding_cleaned_traffic_24.csv
 │  ├─ embedding_cleaned_traffic_48.csv
 │  └─ embedding_cleaned_traffic_96.csv
@@ -130,15 +95,7 @@ Data
    ├─ embedding_cleaned_Climate_24.csv
    ├─ embedding_cleaned_Climate_48.csv
    ├─ embedding_cleaned_Climate_96.csv
-   ├─ embedding_cleaned_Economy_24.csv
-   ├─ embedding_cleaned_Economy_48.csv
-   ├─ embedding_cleaned_Economy_96.csv
-   ├─ embedding_cleaned_Energy_24.csv
-   ├─ embedding_cleaned_Energy_48.csv
-   ├─ embedding_cleaned_Energy_96.csv
-   ├─ embedding_cleaned_Health_US_24.csv
-   ├─ embedding_cleaned_Health_US_48.csv
-   ├─ embedding_cleaned_Health_US_96.csv
+...
    ├─ embedding_cleaned_SocialGood_24.csv
    ├─ embedding_cleaned_SocialGood_48.csv
    └─ embedding_cleaned_SocialGood_96.csv
@@ -148,8 +105,8 @@ Data
 
 ## 🚀 Get Started
 
-Core Structure Overview:
-
+# Code Overview
+Core Structure Overview is as follows:
 ```
 T2S-main
 ├─ pretrained_lavae_unified.py
@@ -173,10 +130,10 @@ T2S-main
    ├─ feature_based_measures.py
    ├─ ts2vec.py
    └─ utils.py
-
 ```
+# Installation
 
-1. Install Python 3.10, and then install the dependencies:
+- Install Python 3.10 from MiniConda, and then install the required dependencies:
 
 ```shell
 pip install -r requirements.txt
@@ -184,15 +141,47 @@ pip install -r requirements.txt
 
 **Note: Time-MoE requires `torch==2.3.1` .**
 
-2. Download the [*TSFragment-600K* data](https://huggingface.co/datasets/WinfredGe/TSFragment-600K)
+# Datasets
+- You can access all well pre-processed [three level datasets](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing).
+- You can also download our [*TSFragment-600K* data](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) only.
+
+# Pretrain LA-VAE
+
+- You can access the well pretrained LA-VAE from [T2S checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) in the folder `./results/saved_pretrained_models/`
+- Running the follow command to pretrain your own LA-VAE on different datasets. For example,
+```
+python pretrained_lavae_unified.py --dataset_name ETTh1 --save_path 'results/saved_pretrained_models/' --mix_train True
+```
+For the more detailed customize, please refer to the arg description of each hyperparameter in `pretrained_lavae_unified.py`.
+
+> [!NOTE]
+> LA-VAE use mix_train to convert arbitrary length data into the unified representation.
+
+# Train and Inference
+- We provide some train and inference experiment pipeline in `./script.sh`.
+- [Example] Running the following command to train and inference on ETTh1.
+```
+python train.py --dataset_name 'ETTh1'
+
+python infer.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
+python infer.py --dataset_name 'ETTh1_48' --cfg_scale 9.0 --total_step 10
+python infer.py --dataset_name 'ETTh1_96' --cfg_scale 9.0 --total_step 10
+
+```
+> [!NOTE]
+> You can tune the hyperparameters to suit your needs, such as cfg_scale and total_step.
+> Please refer to ```train.py``` and ```infer.py``` for the detailed description of customized hyperparameter settings.
 
 
-2.  and [T2S checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) from Google Drive to `./`
-3. Train and perform inference with the model. We provide the experiment script under the  `./script.sh`. (optional)
-4. You can evaluate the model using  `./scripts_validation_only.sh` directly.
-`
-
-Please refer to ```pretrained_lavae_unified.py```, ```train.py```, ```infer.py``` and ```evaluation.py``` for the detailed description of each hyperparameter.
+# Evaluate
+- You can evaluate the model using  `./scripts_validation_only.sh` directly.
+- According to the configuration of `inferce.py`, set the corresponding hyperparameters of `evaluation`.
+- [Example] Running the following evaluation command to evaluate on ETTh1.
+```
+python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
+```
+> [!NOTE]
+> If you want to evaluate on MRR metric, please set `--run_multi True` in `inferce.py`.
 
 
 

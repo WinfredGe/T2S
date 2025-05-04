@@ -163,7 +163,7 @@ python infer.py --dataset_name 'ETTh1_96' --cfg_scale 9.0 --total_step 10
 > Please refer to ```train.py``` and ```infer.py``` for more detailed description of customized hyperparameter settings.
 
 
-### Evaluate
+### ⑤ Evaluate
 - You can evaluate the model using  `./scripts_validation_only.sh` directly.
 - According to the configuration of `inferce.py`, set the corresponding hyperparameters of `evaluation`.
 - [Example] Running the following evaluation command to evaluate on ETTh1.

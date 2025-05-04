@@ -140,3 +140,4 @@ class vqvae(BaseModel):
         print("Encoder Output Shape", x.shape)
         x = self.decoder(x,length)
         return x
+        

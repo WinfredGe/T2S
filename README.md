@@ -60,6 +60,8 @@ ds = load_dataset("WinfredGe/TSFragment-600K")
 ```
 
 - You have access to download all well pre-processed [[three levels datasets]](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing)(include TSFragment-600K dataset), then place them under `./Data` directory.
+> [!NOTE]
+> We also open source the dataset construction and evaluation pipeline in `./Dataset_Construction_Pipeline/` folder.
 
 - Dataset Structure:
 ```
@@ -90,7 +92,6 @@ Data
    └─ embedding_cleaned_SocialGood_96.csv
 ```
 
-**Note:** We also open source the dataset construction and evaluation pipeline in `./Dataset_Construction_Pipeline/` folder.
 
 ## 🚀 Get Started
 

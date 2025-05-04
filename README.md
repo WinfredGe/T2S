@@ -17,8 +17,9 @@
     <img src="./figures/logo.png" width="70">
 </p>
 
+> 1️⃣ T2S is the **first work** for text-to-time series generation with a domain-agnostic approach.
 
-
+> 2️⃣ TSFragment-600K is the **first** fragment-level text-time series pairs dataset comprising across 6 classic domains.
 
 
 ---
@@ -185,4 +186,9 @@ Please refer to ```pretrained_lavae_unified.py```, ```train.py```, ```infer.py``
 ```
 
 ## Acknowledgement
+
 Our implementation adapts [Time-Series-Library](https://github.com/thuml/Time-Series-Library), [TSGBench](https://github.com/YihaoAng/TSGBench), [TOTEM](https://github.com/SaberaTalukder/TOTEM) and [Meta (Scalable Diffusion Models with Transformers)](https://github.com/facebookresearch/DiT) as the code base and have extensively modified it to our purposes. We thank the authors for sharing their implementations and related resources.
+
+## License
+
+This project is licensed under the Apache-2.0 License.

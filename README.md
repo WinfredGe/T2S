@@ -33,31 +33,32 @@
 - 🚩 **May 2025**: T2S preprint now available on [arXiv](xxx)
 
 ---
+---
 
 ## 💫 Introduction
 
 **T2S** is the first domain-agnostic model that enables **text-to-time series generation**. It allows users—both non-experts and professionals—to generate high-resolution, semantically aligned time series from natural language descriptions.
 
-###  Application Scenarios:
+- Application Scenarios:
 
 1. **Inclusive Data Interaction**  
-   Non-experts can describe temporal behaviors and generate synthetic data, democratizing access to data-driven tools.
+   Ordinary people  (non-experts) can describe temporal behaviors and generate synthetic data, democratizing access to data-driven tools, encouraging broader participation in time series data analysis.
 
 2. **Rapid Prototyping for Professionals**  
-   Experts can use text to quickly simulate system dynamics, accelerating the development of AI/IoT systems.
+   Experts can use simple textual descriptions to quickly simulate system temporal dynamics. This capability supports **rapid prototyping** and analysis of system evolution under different conditions. 
 
 3. **Stress Testing**  
-   Simulate edge cases (e.g., "an extreme surge in demand") to evaluate system robustness—beyond what stationary models can do.
+   Simulate edge cases (e.g., "an extreme surge in demand") to evaluate system robustness—beyond what traditional diffusion models can do. Note that traditional models struggle to model these extreme cases because they rely on stationary source data distributions.
 
 <p align="center">
   <img src="./figures/method.png" height="360" />
 </p>
 
-### Key Components
+- Key Components
 
 - **T2S-DiT**: A diffusion-based transformer tailored for conditional generation from natural language.
 - **LA-VAE**: A pretrained **Length-Adaptive Variational Autoencoder** that supports generation of variable-length series.
-- **TSFragment-600K**: A large-scale dataset with 600K fragment-level pairs annotated with **fine-grained morphological captions**.
+- **Dataset: TSFragment-600K**: A large-scale multi-modal dataset with 600K fragment-level text-time series pairs annotated with **fine-grained morphological captions**.
 
 <p align="center">
   <img src="./figures/dataset.png" height="300" />

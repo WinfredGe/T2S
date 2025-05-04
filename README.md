@@ -33,7 +33,7 @@
 - 🚩 **May 2025**: T2S preprint now available on [arXiv](xxx)
 
 
-<p align="center"><strong>⋆⋅⋅⋅⋅☆⋅⋅⋅⋅⋆   About This Work   ⋆⋅⋅⋅⋅☆⋅⋅⋅⋅⋆</strong></p>
+<p align="center"><strong>⋆⋅☆⋅⋆⋅⋅⋅ About This Work ⋅⋅⋅⋆⋅☆⋅⋆</strong></p>
 
 
 

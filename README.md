@@ -105,7 +105,7 @@ Data
 
 ## 🚀 Get Started
 
-# Code Overview
+### Code Overview
 Core Structure Overview is as follows:
 ```
 T2S-main
@@ -131,7 +131,7 @@ T2S-main
    ├─ ts2vec.py
    └─ utils.py
 ```
-# Installation
+### Installation
 
 - Install Python 3.10 from MiniConda, and then install the required dependencies:
 
@@ -141,11 +141,11 @@ pip install -r requirements.txt
 
 **Note: Time-MoE requires `torch==2.3.1` .**
 
-# Datasets
+### Datasets
 - You can access all well pre-processed [three level datasets](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing).
 - You can also download our [*TSFragment-600K* data](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) only.
 
-# Pretrain LA-VAE
+### Pretrain LA-VAE
 
 - You can access the well pretrained LA-VAE from [T2S checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) in the folder `./results/saved_pretrained_models/`
 - Running the follow command to pretrain your own LA-VAE on different datasets. For example,
@@ -157,7 +157,7 @@ For the more detailed customize, please refer to the arg description of each hyp
 > [!NOTE]
 > LA-VAE use mix_train to convert arbitrary length data into the unified representation.
 
-# Train and Inference
+### Train and Inference
 - We provide some train and inference experiment pipeline in `./script.sh`.
 - [Example] Running the following command to train and inference on ETTh1.
 ```
@@ -173,7 +173,7 @@ python infer.py --dataset_name 'ETTh1_96' --cfg_scale 9.0 --total_step 10
 > Please refer to ```train.py``` and ```infer.py``` for the detailed description of customized hyperparameter settings.
 
 
-# Evaluate
+### Evaluate
 - You can evaluate the model using  `./scripts_validation_only.sh` directly.
 - According to the configuration of `inferce.py`, set the corresponding hyperparameters of `evaluation`.
 - [Example] Running the following evaluation command to evaluate on ETTh1.

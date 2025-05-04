@@ -17,12 +17,7 @@
 
 
 > ✅ **T2S** is the **first domain-agnostic framework** for text-to-time series generation.  
-> 📊 **TSFragment-600K** is the **first** fragment-level text–time series dataset across 6 classical domains.
-
-## 📌 TODO List
-
-- [x] Upload **TSFragment-600K** to Hugging Face 🤗  
-- [ ] Provide demo  
+> 📊 **TSFragment-600K** is the **first** well-aligned, fragment-level text–time series multimodal dataset across 6 classical domains.
 
 
 ## 🗞️ Updates / News
@@ -30,13 +25,8 @@
 - 🚩 **April 2025**: **T2S** accepted by *IJCAI 2025*!  
 - 🚩 **May 2025**: [**TSFragment-600K**](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) is now available on 🤗 Hugging Face  
 - 🚩 **May 2025**: Pretrained models [**T2S-LA-VAE**](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) and [**T2S-DiT**](https://huggingface.co/WinfredGe/T2S-DiT) released  
-- 🚩 **May 2025**: T2S preprint now available on [arXiv](xxx)
 
-
-
-<p align="center"><strong>⋆⋅☆⋅⋆   ⬇️About This Work⬇️   ⋆⋅☆⋅⋆</strong></p>
-
-
+[//]: # (- 🚩 **May 2025**: T2S preprint now available on [arXiv]&#40;xxx&#41;)
 
 ## 💫 Introduction
 
@@ -45,7 +35,7 @@
 - Application Scenarios:
 
 1. **Inclusive Data Interaction**  
-   Ordinary people  (non-experts) can describe temporal behaviors and generate synthetic data, democratizing access to data-driven tools, encouraging broader participation in time series data analysis.
+   Non-experts can describe temporal behaviors and generate synthetic data, democratizing access to data-driven tools, encouraging broader participation in time series data analysis.
 
 2. **Rapid Prototyping for Professionals**  
    Experts can use simple textual descriptions to quickly simulate system temporal dynamics. This capability supports **rapid prototyping** and analysis of system evolution under different conditions. 
@@ -78,7 +68,7 @@ ds = load_dataset("WinfredGe/TSFragment-600K")
 
 - You have access to download all well pre-processed [[three levels datasets]](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing)(include TSFragment-600K dataset), then place them under `./Data` directory.
 > [!NOTE]
-> We also open source the dataset construction and evaluation pipeline in `./Dataset_Construction_Pipeline/` folder.
+> We also open source the dataset construction and evaluation pipeline under `./Dataset_Construction_Pipeline/`.
 
 - Dataset Structure:
 ```
@@ -113,7 +103,7 @@ Data
 ## 🚀 Get Started
 
 ### Code Overview
-Core Structure Overview is as follows:
+The code structure is as follows:
 ```
 T2S-main
 ├─ pretrained_lavae_unified.py
@@ -202,7 +192,7 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 ## 📚Further Reading
 1, [**Position Paper: What Can Large Language Models Tell Us about Time Series Analysis**](https://arxiv.org/abs/2402.02713), in *ICML* 2024.
 
-**Authors**: Ming Jin, Yifan Zhang, Wei Chen, Kexin Zhang, Yuxuan Liang*, Bin Yang, Jindong Wang, Shirui Pan, Qingsong Wen*
+**Authors**: Ming Jin, Yifan Zhang, Wei Chen, Kexin Zhang, Yuxuan Liang, Bin Yang, Jindong Wang, Shirui Pan, Qingsong Wen
 
 ```bibtex
 @inproceedings{jin2024position,
@@ -225,16 +215,16 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
   year={2024}
 }
 ```
-3, [**Foundation Models for Time Series Analysis: A Tutorial and Survey**](https://arxiv.org/pdf/2403.14735), in *KDD* 2024.
+3, [**Foundation Models for Spatio-Temporal Data Science: A Tutorial and Survey**](https://arxiv.org/pdf/2503.13502), in *arXiv* 2025.
 
-**Authors**: Yuxuan Liang, Haomin Wen, Yuqi Nie, Yushan Jiang, Ming Jin, Dongjin Song, Shirui Pan, Qingsong Wen*
+**Authors**: Yuxuan Liang, Haomin Wen, Yutong Xia, Ming Jin, Bin Yang, Flora Salim, Qingsong Wen, Shirui Pan, Gao Cong
 
 ```bibtex
-@inproceedings{liang2024foundation,
-  title={Foundation models for time series analysis: A tutorial and survey},
-  author={Liang, Yuxuan and Wen, Haomin and Nie, Yuqi and Jiang, Yushan and Jin, Ming and Song, Dongjin and Pan, Shirui and Wen, Qingsong},
-  booktitle={ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2024)},
-  year={2024}
+@article{liang2025foundation,
+  title={Foundation Models for Spatio-Temporal Data Science: A Tutorial and Survey},
+  author={Liang, Yuxuan and Wen, Haomin and Xia, Yutong and Jin, Ming and Yang, Bin and Salim, Flora and Wen, Qingsong and Pan, Shirui and Cong, Gao},
+  journal={arXiv preprint arXiv:2503.13502},
+  year={2025}
 }
 ```
 

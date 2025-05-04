@@ -33,6 +33,7 @@
 🚩 **News** (May 2025): [T2S (pretrained LA-VAE)](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) and [T2S-DiT](https://huggingface.co/WinfredGe/T2S-DiT) are available on 🤗 Hugging Face.
 
 🚩 **News** (May 2025): T2S preprint is available on [arXiv](xxx).
+
 ---
 
 

@@ -51,4 +51,3 @@ python evaluation.py --dataset_name 'ETTh1_96' --cfg_scale 9.0 --total_step 10
 
 
 
-

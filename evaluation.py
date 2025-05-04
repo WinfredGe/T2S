@@ -14,58 +14,6 @@ import torch
 from scipy.stats import norm
 
 ###################################################
-#                  NDCG                           #
-###################################################
-def dcg_at_k(scores, k):
-    scores = np.asfarray(scores)[:k]
-    if scores.size:
-        return np.sum((2 ** scores - 1) / np.log2(np.arange(2, scores.size + 2)))
-    return 0.0
-
-
-def ndcg_at_k(scores, k):
-    dcg_max = dcg_at_k(sorted(scores, reverse=True), k)
-    if not dcg_max:
-        return 0.0
-    return dcg_at_k(scores, k) / dcg_max
-
-
-
-def cosine_similarity(a, b):
-    a = a.ravel()
-    b = b.ravel()
-    dot_product = np.sum(a * b, axis=-1)
-    norm_a = np.linalg.norm(a, axis=-1)
-    norm_b = np.linalg.norm(b, axis=-1)
-    with np.errstate(divide='ignore', invalid='ignore'):
-        similarity = dot_product / (norm_a * norm_b)
-    similarity = np.nan_to_num(similarity)
-    return similarity
-
-
-def calculate_ndcg(ori_data, gen_data, k=None):
-    n_batch_size = ori_data.shape[0]
-    n_timesteps = ori_data.shape[1]
-    n_series = ori_data.shape[2]
-    n_generations = gen_data.shape[3]
-    k = n_generations
-
-    ndcg_scores = np.zeros(n_batch_size)
-
-    for batch_idx in range(n_batch_size):
-        similarities = []
-        for gen_idx in range(k):
-            real_sequence = ori_data[batch_idx]
-            generated_sequence = gen_data[batch_idx, :, :, gen_idx]
-            similarity = cosine_similarity(real_sequence, generated_sequence)
-            similarities.append(np.mean(similarity))
-
-        ndcg_scores[batch_idx] = ndcg_at_k(similarities, k)
-
-    ndcg_scores = np.mean(ndcg_scores)
-    return ndcg_scores
-
-###################################################
 #                    MRR                          #
 ###################################################
 
@@ -94,40 +42,6 @@ def calculate_mrr(ori_data, gen_data, k=None):
         mrr_scores[batch_idx] = 1.0 / rank if rank is not None else 0.0
 
     return np.mean(mrr_scores)
-
-###################################################
-#                    MAP                          #
-###################################################
-
-def calculate_map(ori_data, gen_data, k=None):
-    n_batch_size = ori_data.shape[0]
-    n_generations = gen_data.shape[3]
-    k = n_generations if k is None else k
-
-    map_scores = np.zeros(n_batch_size)
-
-    for batch_idx in range(n_batch_size):
-        similarities = []
-        for gen_idx in range(k):
-            real_sequence = ori_data[batch_idx]
-            generated_sequence = gen_data[batch_idx, :, :, gen_idx]
-            similarity = cosine_similarity(real_sequence, generated_sequence)
-            similarities.append(np.mean(similarity))
-
-        sorted_indices = np.argsort(similarities)[::-1]
-        relevant_count = 0
-        precision_sum = 0.0
-
-        for rank, idx in enumerate(sorted_indices):
-            if similarities[idx] > therehold:
-                relevant_count += 1
-                precision_at_rank = relevant_count / (rank + 1)
-                precision_sum += precision_at_rank
-
-        ap = precision_sum / relevant_count if relevant_count > 0 else 0.0
-        map_scores[batch_idx] = ap
-
-    return np.mean(map_scores)
 
 ###################################################
 #             other reconstruct:CRPS              #
@@ -195,15 +109,9 @@ def evaluate_muldata(args, ori_data, gen_data):
     if 'CRPS' in method_list:
         mdd = calculate_crps(ori_data, gen_data)
         result['CRPS'] = mdd
-    if 'MAP' in method_list:
-        map = calculate_map(ori_data, gen_data)
-        result['MAP'] = map
     if 'MRR' in method_list:
         mrr = calculate_mrr(ori_data, gen_data)
         result['MRR'] = mrr
-    if 'NDCG' in method_list:
-        ndcg = calculate_ndcg(ori_data, gen_data)
-        result['NDCG'] = ndcg
 
     if isinstance(result, dict):
         evaluation_save_path = os.path.join(evaluation_save_path, f'{combined_name}.json')
@@ -271,40 +179,6 @@ def calculate_mse(ori_data, gen_data):
     return average_mse
 
 
-def calculate_mae(ori_data, gen_data):
-    n_samples = ori_data.shape[0]
-    n_series = ori_data.shape[2]
-    mae_values = []
-
-    for i in range(n_samples):
-        total_mae = 0
-        for j in range(n_series):
-            mae = np.mean(np.abs(ori_data[i, :, j] - gen_data[i, :, j]))
-            total_mae += mae
-        mae_values.append(total_mae / n_series)
-
-    mae_values = np.array(mae_values)
-    average_mae = mae_values.mean()
-    return average_mae
-
-
-def calculate_rmse(ori_data, gen_data):
-    n_samples = ori_data.shape[0]
-    n_series = ori_data.shape[2]
-    rmse_values = []
-
-    for i in range(n_samples):
-        total_rmse = 0
-        for j in range(n_series):
-            mse = np.mean((ori_data[i, :, j] - gen_data[i, :, j]) ** 2)
-            total_rmse += np.sqrt(mse)
-        rmse_values.append(total_rmse / n_series)
-
-    rmse_values = np.array(rmse_values)
-    average_rmse = rmse_values.mean()
-    return average_rmse
-
-
 def calculate_wape(ori_data, gen_data):
     n_samples = ori_data.shape[0]
     n_series = ori_data.shape[2]
@@ -369,38 +243,10 @@ def evaluate_data(args, ori_data, gen_data):
 
     ori_data = np.transpose(ori_data, (0, 2, 1))
     gen_data = np.transpose(gen_data, (0, 2, 1))
-    # Feature-based measures
-    if 'MDD' in method_list:
-        mdd = calculate_mdd(ori_data,gen_data)
-        result['MDD'] = mdd
-    if 'ACD' in method_list:
-        acd = calculate_acd(ori_data,gen_data)
-        result['ACD'] = acd
-    if 'SD' in method_list:
-        sd = calculate_sd(ori_data,gen_data)
-        result['SD'] = sd
-    if 'KD' in method_list:
-        kd = calculate_kd(ori_data,gen_data)
-        result['KD'] = kd
-
-
-    # Distance-based measures
-    if 'ED' in method_list:
-        ed = calculate_ed(ori_data,gen_data)
-        result['ED'] = ed
-    if 'DTW' in method_list:
-        dtw = calculate_dtw(ori_data,gen_data)
-        result['DTW'] = dtw
 
     if 'MSE' in method_list:
         mse = calculate_mse(ori_data,gen_data)
         result['MSE'] = mse
-    if 'MAE' in method_list:
-        mae = calculate_mae(ori_data,gen_data)
-        result['MAE'] = mae
-    if 'RMSE' in method_list:
-        rmse = calculate_rmse(ori_data,gen_data)
-        result['RMSE'] = rmse
     if 'WAPE' in method_list:
         wape = calculate_wape(ori_data,gen_data)
         result['WAPE'] = wape
@@ -420,7 +266,7 @@ def evaluate_data(args, ori_data, gen_data):
 
 parser = argparse.ArgumentParser(description="Train flow matching model")
 parser.add_argument('--method_list', type=str, default='MSE,WAPE,MRR',
-                        help='metric list [C-FID,MDD,ACD,SD,KD,ED,DTW,t-SNE,Distribution,MSE,MAE,RMSE,WAPE,CRPS,MAP,MRR,NDCG]')
+                        help='metric list [MSE,WAPE,MRR]')
 parser.add_argument('--save_path', type=str, default='./results/denoiser_results', help='Denoiser Model save path')
 parser.add_argument('--dataset_name', type=str, default='ETTh1_96', help='dataset name')
 parser.add_argument('--backbone', type=str, default='flowmatching', help='flowmatching or DDPM or EDM')

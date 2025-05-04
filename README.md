@@ -6,9 +6,9 @@
 
 <div align="center">
 
-![](https://img.shields.io/github/last-commit/KimMeen/Time-LLM?color=green)
-![](https://img.shields.io/github/stars/KimMeen/Time-LLM?color=yellow)
-![](https://img.shields.io/github/forks/KimMeen/Time-LLM?color=lightblue)
+![](https://img.shields.io/github/last-commit/WinfredGe/T2S?color=green)
+![](https://img.shields.io/github/stars/WinfredGe/T2S?color=yellow)
+![](https://img.shields.io/github/forks/WinfredGe/T2S?color=lightblue)
 ![](https://img.shields.io/badge/PRs-Welcome-green)
 
 </div>

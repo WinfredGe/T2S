@@ -446,7 +446,7 @@ args.generation_save_path = os.path.join(args.save_path, 'generation',
 args.evaluation_save_path = os.path.join(args.save_path, 'evaluation', args.model_name)
 
 
-'''Choice 1 : evaluate our model'''
+'''evaluate our model'''
 x_1 = np.load(os.path.join(args.generation_save_path,'run_0','x_1.npy'))
 x_t = np.load(os.path.join(args.generation_save_path, 'x_t.npy'))
 x_t_latent_dec_array = np.load(os.path.join(args.generation_save_path,'run_0','x_t_latent_dec_array.npy'))

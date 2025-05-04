@@ -116,6 +116,8 @@ python evaluation.py --dataset_name 'ETTh1_96' --cfg_scale 9.0 --total_step 10
 
 ## Detailed usage
 
+Please refer to ```pretrained_lavae_unified.py```, ```train.py```, ```infer.py``` and ```evaluation.py``` for the detailed description of each hyperparameter.
+
 ## Further Reading
 1, [**TimeMixer++: A General Time Series Pattern Machine for Universal Predictive Analysis**](https://arxiv.org/abs/2410.16032), in *arXiv* 2024.
 [\[GitHub Repo\]](https://github.com/kwuking/TimeMixer/blob/main/README.md)

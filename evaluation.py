@@ -6,7 +6,6 @@ from scipy.linalg import sqrtm
 from dtaidistance.dtw_ndim import distance as multi_dtw_distance
 from evaluate.ts2vec import initialize_ts2vec
 from evaluate.feature_based_measures import calculate_mdd, calculate_acd, calculate_sd, calculate_kd
-from evaluate.visualization import visualize_tsne, visualize_distribution
 import os
 import datetime
 from evaluate.utils import show_with_start_divider, show_with_end_divider, determine_device, write_json_data
@@ -409,11 +408,6 @@ def evaluate_data(args, ori_data, gen_data):
 
     ori_data = np.transpose(ori_data, (0, 2, 1))
     gen_data = np.transpose(gen_data, (0, 2, 1))
-    # Visualization
-    if 't-SNE' in method_list:
-        visualize_tsne(ori_data, gen_data, evaluation_save_path, combined_name)
-    if 'Distribution' in method_list:
-        visualize_distribution(ori_data, gen_data, evaluation_save_path, combined_name)
 
     if isinstance(result, dict):
         evaluation_save_path = os.path.join(evaluation_save_path, f'{combined_name}.json')

@@ -121,7 +121,7 @@ T2S-main
    ├─ ts2vec.py
    └─ utils.py
 ```
-### Installation
+### ① Installation
 
 - Install Python 3.10 from MiniConda, and then install the required dependencies:
 

@@ -59,6 +59,12 @@ Application Scenarios:
 <img src="./figures/dataset.png" height = "190" alt="" align=center />
 </p>
 
+
+## Video
+
+
+
+
 ## Requirements
 
 Use python 3.10 from Conda
@@ -201,3 +207,6 @@ Please refer to ```pretrained_lavae_unified.py```, ```train.py```, ```infer.py``
   year={2024}
 }
 ```
+
+## Acknowledgement
+Our implementation adapts [Time-Series-Library](https://github.com/thuml/Time-Series-Library) and [OFA (GPT4TS)](https://github.com/DAMO-DI-ML/NeurIPS2023-One-Fits-All) as the code base and have extensively modified it to our purposes. We thank the authors for sharing their implementations and related resources.

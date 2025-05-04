@@ -178,3 +178,4 @@ if __name__ == '__main__':
     model = torch.load(os.path.join(save_dir, 'final_model.pth'), map_location=device)
     dataset, test_loader = loader_provider(args, period='test')    # note: mixture_dataset is used to train VAE
     inference(model, test_loader, device, save_dir, num_samples=None)
+    

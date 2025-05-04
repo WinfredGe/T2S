@@ -132,6 +132,5 @@ def custom_collate_fn(batch):
             batches.append((batch_texts, batch_xs, batch_embeddings))
     return batches
 
-
 if __name__ == "__main__":
     pass

@@ -1,5 +1,3 @@
-![image](https://github.com/user-attachments/assets/0176ebcb-06e1-49b6-896b-6d9102697a94)<div align="center">
-
 <h2><b>(IJCAI'25) <span style="color:rgb(185,5,14)">T</span><span style="color:rgb(19,175,85)">2</span><span style="color:rgb(46,96,179)">S</span>: High-resolution Time Series Generation with Text-to-Series Diffusion Models</b></h2>
 
 <p>

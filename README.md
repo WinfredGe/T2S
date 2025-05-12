@@ -1,4 +1,4 @@
-<div align="center">
+![image](https://github.com/user-attachments/assets/0176ebcb-06e1-49b6-896b-6d9102697a94)<div align="center">
 
 <h2><b>(IJCAI'25) <span style="color:rgb(185,5,14)">T</span><span style="color:rgb(19,175,85)">2</span><span style="color:rgb(46,96,179)">S</span>: High-resolution Time Series Generation with Text-to-Series Diffusion Models</b></h2>
 
@@ -232,10 +232,10 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 > Please let us know if you find out a mistake or have any suggestions!
 > If you find this resource helpful, please consider to star this repository and cite our research:
 ```
-@inproceedings{ge2025t2s,
-  title={{T2S}: High-resolution Time Series Generation with Text-to-Series Diffusion Models},
+@article{ge2025t2s,
+  title={T2S: High-resolution Time Series Generation with Text-to-Series Diffusion Models},
   author={Ge, Yunfeng and Li, Jiawei and Zhao, Yiji and Wen, Haomin and Li, Zhao and Qiu, Meikang and Li, Hongyan and Jin, Ming and Pan, Shirui},
-  booktitle={International Joint Conference on Artificial Intelligence (IJCAI)},
+  journal={arXiv preprint arXiv:2505.02417},
   year={2025}
 }
 ```

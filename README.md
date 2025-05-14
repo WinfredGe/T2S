@@ -243,7 +243,3 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 
 Our implementation adapts [Time-Series-Library](https://github.com/thuml/Time-Series-Library), [TSGBench](https://github.com/YihaoAng/TSGBench), [TOTEM](https://github.com/SaberaTalukder/TOTEM) and [Meta (Scalable Diffusion Models with Transformers)](https://github.com/facebookresearch/DiT) as the code base and have extensively modified it to our purposes. We thank the authors for sharing their implementations and related resources.
 
-## 🔰 License
-
-This project is licensed under the Apache-2.0 License.
-

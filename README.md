@@ -44,7 +44,7 @@
    Simulate edge cases (e.g., "an extreme surge in demand") to evaluate system robustness—beyond what traditional diffusion models can do. Note that traditional models struggle to model these extreme cases because they rely on stationary source data distributions.
 
 <p align="center">
-  <img src="./figures/method.png" height="360" />
+  <img src="./figures/method2.png" height="360" />
 </p>
 
 - Key Components

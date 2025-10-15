@@ -22,11 +22,9 @@
 
 ## 🗞️ Updates / News
 
-- 🚩 **April 2025**: **T2S** accepted by *IJCAI 2025*!  
+- 🚩 **April 2025**: **T2S** has been accepted by *IJCAI 2025*  
 - 🚩 **May 2025**: [**TSFragment-600K**](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) is now available on 🤗 Hugging Face  
 - 🚩 **May 2025**: Pretrained models [**T2S-LA-VAE**](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) and [**T2S-DiT**](https://huggingface.co/WinfredGe/T2S-DiT) released  
-
-[//]: # (- 🚩 **May 2025**: T2S preprint now available on [arXiv]&#40;xxx&#41;)
 
 ## 💫 Introduction
 
@@ -190,19 +188,47 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 
 
 ## 📚Further Reading
-1, [**Position Paper: What Can Large Language Models Tell Us about Time Series Analysis**](https://arxiv.org/abs/2402.02713), in *ICML* 2024.
+1, [**EventTSF: Event-Aware Non-Stationary Time Series Forecasting**](https://www.arxiv.org/pdf/2508.13434), *arXiv* 2025.
 
-**Authors**: Ming Jin, Yifan Zhang, Wei Chen, Kexin Zhang, Yuxuan Liang, Bin Yang, Jindong Wang, Shirui Pan, Qingsong Wen
+**Authors**: Yunfeng Ge, Ming Jin, Yiji Zhao, Hongyan Li, Bo Du, Chang Xu, Shirui Pan
 
 ```bibtex
-@inproceedings{jin2024position,
-   title={Position Paper: What Can Large Language Models Tell Us about Time Series Analysis}, 
-   author={Ming Jin and Yifan Zhang and Wei Chen and Kexin Zhang and Yuxuan Liang and Bin Yang and Jindong Wang and Shirui Pan and Qingsong Wen},
-  booktitle={International Conference on Machine Learning (ICML 2024)},
-  year={2024}
+@article{ge2025eventtsf,
+  title={EventTSF: Event-Aware Non-Stationary Time Series Forecasting},
+  author={Ge, Yunfeng and Jin, Ming and Zhao, Yiji and Li, Hongyan and Du, Bo and Xu, Chang and Pan, Shirui},
+  journal={arXiv preprint arXiv:2508.13434},
+  year={2025}
 }
 ```
-2, [**A Survey on Diffusion Models for Time Series and Spatio-Temporal Data**](https://arxiv.org/abs/2404.18886), in *arXiv* 2024.
+
+2, [**TimeOmni-1: Incentivizing Complex Reasoning with Time Series in Large Language Models**](https://arxiv.org/pdf/2509.24803), *arXiv* 2025.
+
+**Authors**: Tong Guan, Zijie Meng, Dianqi Li, Shiyu Wang, Chao-Han Huck Yang, Qingsong Wen, Zuozhu Liu, Sabato Marco Siniscalchi, Ming Jin, Shirui Pan
+
+```bibtex
+@article{guan2025timeomni,
+  title={TimeOmni-1: Incentivizing Complex Reasoning with Time Series in Large Language Models},
+  author={Guan, Tong and Meng, Zijie and Li, Dianqi and Wang, Shiyu and Yang, Chao-Han Huck and Wen, Qingsong and Liu, Zuozhu and Siniscalchi, Sabato Marco and Jin, Ming and Pan, Shirui},
+  journal={arXiv preprint arXiv:2509.24803},
+  year={2025}
+}
+```
+
+3, [**Time-MQA: Time Series Multi-Task Question Answering with Context Enhancement**](https://arxiv.org/pdf/2503.01875), in *ACL* 2025.
+[\[HuggingFace\]](https://huggingface.co/Time-MQA)
+
+**Authors**: Yaxuan Kong, Yiyuan Yang, Yoontae Hwang, Wenjie Du, Stefan Zohren, Zhangyang Wang, Ming Jin, Qingsong Wen
+
+```bibtex
+@inproceedings{kong2025time,
+  title={Time-mqa: Time series multi-task question answering with context enhancement},
+  author={Kong, Yaxuan and Yang, Yiyuan and Hwang, Yoontae and Du, Wenjie and Zohren, Stefan and Wang, Zhangyang and Jin, Ming and Wen, Qingsong},
+  booktitle={The 63rd Annual Meeting of the Association for Computational Linguistics (ACL 2025)},
+  year={2025}
+}
+```
+
+4, [**A Survey on Diffusion Models for Time Series and Spatio-Temporal Data**](https://arxiv.org/abs/2404.18886), in *ACM Computing Surveys* 2025.
 [\[GitHub Repo\]](https://github.com/yyysjz1997/Awesome-TimeSeries-SpatioTemporal-Diffusion-Model/blob/main/README.md)
 
 **Authors**: Yiyuan Yang, Ming Jin, Haomin Wen, Chaoli Zhang, Yuxuan Liang, Lintao Ma, Yi Wang, Chenghao Liu, Bin Yang, Zenglin Xu, Jiang Bian, Shirui Pan, Qingsong Wen
@@ -211,19 +237,7 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 @article{yang2024survey,
   title={A survey on diffusion models for time series and spatio-temporal data},
   author={Yang, Yiyuan and Jin, Ming and Wen, Haomin and Zhang, Chaoli and Liang, Yuxuan and Ma, Lintao and Wang, Yi and Liu, Chenghao and Yang, Bin and Xu, Zenglin and others},
-  journal={arXiv preprint arXiv:2404.18886},
-  year={2024}
-}
-```
-3, [**Foundation Models for Spatio-Temporal Data Science: A Tutorial and Survey**](https://arxiv.org/pdf/2503.13502), in *arXiv* 2025.
-
-**Authors**: Yuxuan Liang, Haomin Wen, Yutong Xia, Ming Jin, Bin Yang, Flora Salim, Qingsong Wen, Shirui Pan, Gao Cong
-
-```bibtex
-@article{liang2025foundation,
-  title={Foundation Models for Spatio-Temporal Data Science: A Tutorial and Survey},
-  author={Liang, Yuxuan and Wen, Haomin and Xia, Yutong and Jin, Ming and Yang, Bin and Salim, Flora and Wen, Qingsong and Pan, Shirui and Cong, Gao},
-  journal={arXiv preprint arXiv:2503.13502},
+  journal={ACM Computing Surveys},
   year={2025}
 }
 ```
@@ -232,10 +246,10 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 > Please let us know if you find out a mistake or have any suggestions!
 > If you find this resource helpful, please consider to star this repository and cite our research:
 ```
-@article{ge2025t2s,
+@inproceedings{ge2025t2s,
   title={T2S: High-resolution Time Series Generation with Text-to-Series Diffusion Models},
   author={Ge, Yunfeng and Li, Jiawei and Zhao, Yiji and Wen, Haomin and Li, Zhao and Qiu, Meikang and Li, Hongyan and Jin, Ming and Pan, Shirui},
-  journal={arXiv preprint arXiv:2505.02417},
+  booktitle={International Joint Conference on Artificial Intelligence},
   year={2025}
 }
 ```

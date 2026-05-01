@@ -1,6 +1,6 @@
 <div align="center">
 
-<h2><b>(IJCAI'25) <span style="color:rgb(185,5,14)">T</span><span style="color:rgb(19,175,85)">2</span><span style="color:rgb(46,96,179)">S</span>: High-resolution Time Series Generation with Text-to-Series Diffusion Models</b></h2>
+<h2><b>(IJCAI'25) <span style="color:rgb(185,5,14)">T</span><span style="color:rgb(19,175,85)">2</span><span style="color:rgb(46,96,179)">S</span>：High-resolution Time Series Generation with Text-to-Series Diffusion Models</b></h2>
 
 <p>
   <img src="./figures/logo.png" width="70">
@@ -15,184 +15,131 @@
 
 </div>
 
+> ✅ **T2S** 是首个**领域无关**的文本生成时间序列框架  
+> 📊 **TSFragment-600K** 是首个**跨 6 个经典领域**、片段级文本-时间序列对齐数据集
 
-> ✅ **T2S** is the **first domain-agnostic framework** for text-to-time series generation.  
-> 📊 **TSFragment-600K** is the **first** well-aligned, fragment-level text–time series multimodal dataset across 6 classical domains.
+## 🗞️ 更新 / News
 
+- 🚩 **April 2025**：**T2S** 被 *IJCAI 2025* 接收  
+- 🚩 **May 2025**：[**TSFragment-600K**](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) 已发布在 🤗 Hugging Face  
+- 🚩 **May 2025**：预训练模型 [**T2S-LA-VAE**](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) 与 [**T2S-DiT**](https://huggingface.co/WinfredGe/T2S-DiT) 已发布
 
-## 🗞️ Updates / News
+## 💫 项目简介
 
-- 🚩 **April 2025**: **T2S** has been accepted by *IJCAI 2025*  
-- 🚩 **May 2025**: [**TSFragment-600K**](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) is now available on 🤗 Hugging Face  
-- 🚩 **May 2025**: Pretrained models [**T2S-LA-VAE**](https://huggingface.co/WinfredGe/T2S-pretrained_LA-VAE) and [**T2S-DiT**](https://huggingface.co/WinfredGe/T2S-DiT) released  
+**T2S** 面向文本到时间序列生成任务，能够从自然语言描述中生成高分辨率、语义对齐的时间序列，面向非专家与专业用户提供统一的生成能力。
 
-## 💫 Introduction
+**应用场景**
 
-**T2S** is the first domain-agnostic model that enables **text-to-time series generation**. It allows users—both non-experts and professionals—to generate high-resolution, semantically aligned time series from natural language descriptions.
-
-- Application Scenarios:
-
-1. **Inclusive Data Interaction**  
-   Non-experts can describe temporal behaviors and generate synthetic data, democratizing access to data-driven tools, encouraging broader participation in time series data analysis.
-
-2. **Rapid Prototyping for Professionals**  
-   Experts can use simple textual descriptions to quickly simulate system temporal dynamics. This capability supports **rapid prototyping** and analysis of system evolution under different conditions. 
-
-3. **Stress Testing**  
-   Simulate edge cases (e.g., "an extreme surge in demand") to evaluate system robustness—beyond what traditional diffusion models can do. Note that traditional models struggle to model these extreme cases because they rely on stationary source data distributions.
+1. **普惠式数据交互**：非专家可用语言描述生成合成序列，降低数据分析门槛  
+2. **专业场景快速原型**：用简短描述快速模拟系统演化，用于原型验证与分析  
+3. **极端情境压力测试**：模拟极端波动与异常事件，评估系统鲁棒性
 
 <p align="center">
   <img src="./figures/method2.png" height="360" />
 </p>
 
-- Key Components
+## 🔧 模型与数据集
 
-- **T2S-DiT**: A diffusion-based transformer tailored for conditional generation from natural language.
-- **LA-VAE**: A pretrained **Length-Adaptive Variational Autoencoder** that supports generation of variable-length series.
-- **Dataset: TSFragment-600K**: A large-scale multi-modal dataset with 600K fragment-level text-time series pairs annotated with **fine-grained morphological captions**.
+- **T2S-DiT**：面向文本条件的扩散式 Transformer  
+- **LA-VAE**：长度自适应变分自编码器，支持可变长度序列  
+- **TSFragment-600K**：60 万片段级文本-时间序列对，包含细粒度形态描述
 
 <p align="center">
   <img src="./figures/dataset.png" height="300" />
 </p>
 
-## 📑 Datasets
+## 📑 数据集
 
-- [TSFragment-600K dataset](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) is available on 🤗 Hugging Face.
-You can follow the usage example to call TSFragment-600K dataset:
+- 直接在 🤗 Hugging Face 获取：  
+  - [TSFragment-600K](https://huggingface.co/datasets/WinfredGe/TSFragment-600K)
 ```
 from datasets import load_dataset
 ds = load_dataset("WinfredGe/TSFragment-600K")
 ```
 
-- You have access to download all well pre-processed [[three levels datasets]](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing)(include TSFragment-600K dataset), then place them under `./Data` directory.
-> [!NOTE]
-> We also open source the dataset construction and evaluation pipeline under `./Dataset_Construction_Pipeline/`.
+- 可下载包含三层级数据的预处理包（含 TSFragment-600K），并放在 `./Data`：  
+  - [预处理数据集下载链接](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing)
 
-- Dataset Structure:
+> [!NOTE]
+> 数据集构建与评测流程位于 `./Dataset_Construction_Pipeline/`。
+
+**数据结构**
 ```
 Data
 ├─ TSFragment-600K
 │  ├─ embedding_cleaned_airquality_24.csv
 │  ├─ embedding_cleaned_airquality_48.csv
 │  ├─ embedding_cleaned_airquality_96.csv
-│  ├─ embedding_cleaned_electricity_24.csv
-│  ├─ embedding_cleaned_electricity_48.csv
-│  ├─ embedding_cleaned_electricity_96.csv
 │  │ ...
-│  ├─ embedding_cleaned_traffic_24.csv
-│  ├─ embedding_cleaned_traffic_48.csv
-│  └─ embedding_cleaned_traffic_96.csv
 ├─ SUSHI
 │  └─ embedding_cleaned_SUSHI.csv
 └─ MMD
    ├─ embedding_cleaned_Agriculture_24.csv
    ├─ embedding_cleaned_Agriculture_48.csv
    ├─ embedding_cleaned_Agriculture_96.csv
-   ├─ embedding_cleaned_Climate_24.csv
-   ├─ embedding_cleaned_Climate_48.csv
-   ├─ embedding_cleaned_Climate_96.csv
    │ ...
-   ├─ embedding_cleaned_SocialGood_24.csv
-   ├─ embedding_cleaned_SocialGood_48.csv
-   └─ embedding_cleaned_SocialGood_96.csv
 ```
 
+## 🚀 快速开始
 
-## 🚀 Get Started
+### ① 安装
 
-### Code Overview
-The code structure is as follows:
 ```
-T2S-main
-├─ pretrained_lavae_unified.py
-├─ train.py
-├─ infer.py
-├─ evaluation.py
-├─ datafactory
-│  ├─ dataloader.py
-│  └─ dataset.py
-├─ model
-│  ├─ pretrained
-│  │  ├─ core.py
-│  │  └─ vqvae.py
-│  ├─ denoiser
-│  │  ├─ mlp.py
-│  │  └─ transformer.py
-│  └─ backbone
-│     ├─ DDPM.py
-│     └─ rectified_flow.py
-└─ evaluate
-   ├─ feature_based_measures.py
-   ├─ ts2vec.py
-   └─ utils.py
-```
-### ① Installation
-
-- Install Python 3.10 from MiniConda, and then install the required dependencies:
-
-```shell
 pip install -r requirements.txt
 ```
 
-**Note: T2S requires `torch==2.3.1` .**
+> [!NOTE]
+> 需要 `torch==2.3.1`。
 
-###  ② Prepare Datasets
-- You can access all well pre-processed [three level datasets](https://drive.google.com/file/d/1tV0xBd0ToWvuLpI5Ocd49uM3QcRkP4NT/view?usp=sharing).
-- You can also download our [*TSFragment-600K* data](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) only.
+### ② 数据准备
 
-### ③ Pretrain LA-VAE
+- 下载三层级预处理数据或仅下载 [TSFragment-600K](https://huggingface.co/datasets/WinfredGe/TSFragment-600K)
+- 将数据放在 `./Data` 目录
 
-- You can access the well pretrained LA-VAE from [T2S checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) in the folder `./results/saved_pretrained_models/`
-- Running the follow command to pretrain your own LA-VAE on different datasets. For example,
+### ③ 预训练 LA-VAE
+
+- 预训练模型下载：[T2S checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing)，放至 `./results/saved_pretrained_models/`
+- 自行预训练示例：
 ```
 python pretrained_lavae_unified.py --dataset_name ETTh1 --save_path 'results/saved_pretrained_models/' --mix_train True
 ```
-For the more detailed customize, please refer to the arg description of each hyperparameter in `pretrained_lavae_unified.py`.
 
 > [!NOTE]
-> LA-VAE use mix_train to convert arbitrary length data into the unified representation.
+> `mix_train` 会将不同长度序列统一到同一表示空间。
 
-### ④ Train and Inference 
-- We provide some train and inference experiment pipeline in `./script.sh`.
-- [Example] Running the following command to train and inference on ETTh1.
+### ④ 训练与推理
+
+- 脚本示例见 `./scripts/script.sh`
+- 示例（ETTh1）：
 ```
 python train.py --dataset_name 'ETTh1'
 
 python infer.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 python infer.py --dataset_name 'ETTh1_48' --cfg_scale 9.0 --total_step 10
 python infer.py --dataset_name 'ETTh1_96' --cfg_scale 9.0 --total_step 10
-
 ```
-> [!NOTE]
-> You can tune the hyperparameters to suit your needs, such as cfg_scale and total_step.
-> Please refer to ```train.py``` and ```infer.py``` for more detailed description of customized hyperparameter settings.
 
+### ⑤ 评测
 
-### ⑤ Evaluate
-- You can evaluate the model using  `./scripts_validation_only.sh` directly.
-- According to the configuration of `inferce.py`, set the corresponding hyperparameters of `evaluation`.
-- [Example] Running the following evaluation command to evaluate on ETTh1.
+- 评测脚本见 `./scripts/scripts_validation_only.sh`
+- 示例（ETTh1）：
 ```
 python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 ```
+
 > [!NOTE]
-> If you want to evaluate on MRR metric, please set `--run_multi True` in `inferce.py`.
+> 若需评测 MRR，请在 `infer.py` 中设置 `--run_multi True`。
 
+## 📈 快速复现
 
+1. 安装 Python 3.10 与依赖  
+2. 下载 [TSFragment-600K](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) 与 [T2S checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) 到项目根目录  
+3. 运行 `./scripts/scripts_validation_only.sh` 进行评测
 
-## 📈 Quick Reproduce
+## 📚 进一步阅读
 
-1. Install Python 3.10, and then install the dependencies in `requirements.txt`.
-2. Download the [*TSFragment-600K* data](https://huggingface.co/datasets/WinfredGe/TSFragment-600K) and [T2S checkpoints](https://drive.google.com/file/d/1T-gjPMvnpSFpkkUSZpAeeIqALThOQydT/view?usp=sharing) to `./`
-3. Evaluate the model using  `./scripts_validation_only.sh` directly.
-
-
-## 📚Further Reading
-1, [**EventTSF: Event-Aware Non-Stationary Time Series Forecasting**](https://www.arxiv.org/pdf/2508.13434), *arXiv* 2025.
-
-**Authors**: Yunfeng Ge, Ming Jin, Yiji Zhao, Hongyan Li, Bo Du, Chang Xu, Shirui Pan
-
-```bibtex
+1. [**EventTSF: Event-Aware Non-Stationary Time Series Forecasting**](https://www.arxiv.org/pdf/2508.13434), *arXiv* 2025.
+```
 @article{ge2025eventtsf,
   title={EventTSF: Event-Aware Non-Stationary Time Series Forecasting},
   author={Ge, Yunfeng and Jin, Ming and Zhao, Yiji and Li, Hongyan and Du, Bo and Xu, Chang and Pan, Shirui},
@@ -201,11 +148,8 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 }
 ```
 
-2, [**TimeOmni-1: Incentivizing Complex Reasoning with Time Series in Large Language Models**](https://arxiv.org/pdf/2509.24803), *arXiv* 2025.
-
-**Authors**: Tong Guan, Zijie Meng, Dianqi Li, Shiyu Wang, Chao-Han Huck Yang, Qingsong Wen, Zuozhu Liu, Sabato Marco Siniscalchi, Ming Jin, Shirui Pan
-
-```bibtex
+2. [**TimeOmni-1: Incentivizing Complex Reasoning with Time Series in Large Language Models**](https://arxiv.org/pdf/2509.24803), *arXiv* 2025.
+```
 @article{guan2025timeomni,
   title={TimeOmni-1: Incentivizing Complex Reasoning with Time Series in Large Language Models},
   author={Guan, Tong and Meng, Zijie and Li, Dianqi and Wang, Shiyu and Yang, Chao-Han Huck and Wen, Qingsong and Liu, Zuozhu and Siniscalchi, Sabato Marco and Jin, Ming and Pan, Shirui},
@@ -214,12 +158,8 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 }
 ```
 
-3, [**Time-MQA: Time Series Multi-Task Question Answering with Context Enhancement**](https://arxiv.org/pdf/2503.01875), in *ACL* 2025.
-[\[HuggingFace\]](https://huggingface.co/Time-MQA)
-
-**Authors**: Yaxuan Kong, Yiyuan Yang, Yoontae Hwang, Wenjie Du, Stefan Zohren, Zhangyang Wang, Ming Jin, Qingsong Wen
-
-```bibtex
+3. [**Time-MQA: Time Series Multi-Task Question Answering with Context Enhancement**](https://arxiv.org/pdf/2503.01875), in *ACL* 2025. [\[HuggingFace\]](https://huggingface.co/Time-MQA)
+```
 @inproceedings{kong2025time,
   title={Time-mqa: Time series multi-task question answering with context enhancement},
   author={Kong, Yaxuan and Yang, Yiyuan and Hwang, Yoontae and Du, Wenjie and Zohren, Stefan and Wang, Zhangyang and Jin, Ming and Wen, Qingsong},
@@ -228,12 +168,8 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 }
 ```
 
-4, [**A Survey on Diffusion Models for Time Series and Spatio-Temporal Data**](https://arxiv.org/abs/2404.18886), in *ACM Computing Surveys* 2025.
-[\[GitHub Repo\]](https://github.com/yyysjz1997/Awesome-TimeSeries-SpatioTemporal-Diffusion-Model/blob/main/README.md)
-
-**Authors**: Yiyuan Yang, Ming Jin, Haomin Wen, Chaoli Zhang, Yuxuan Liang, Lintao Ma, Yi Wang, Chenghao Liu, Bin Yang, Zenglin Xu, Jiang Bian, Shirui Pan, Qingsong Wen
-
-```bibtex
+4. [**A Survey on Diffusion Models for Time Series and Spatio-Temporal Data**](https://arxiv.org/abs/2404.18886), in *ACM Computing Surveys* 2025. [\[GitHub Repo\]](https://github.com/yyysjz1997/Awesome-TimeSeries-SpatioTemporal-Diffusion-Model/blob/main/README.md)
+```
 @article{yang2024survey,
   title={A survey on diffusion models for time series and spatio-temporal data},
   author={Yang, Yiyuan and Jin, Ming and Wen, Haomin and Zhang, Chaoli and Liang, Yuxuan and Ma, Lintao and Wang, Yi and Liu, Chenghao and Yang, Bin and Xu, Zenglin and others},
@@ -242,9 +178,9 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
 }
 ```
 
-## 🙋 Citation
-> Please let us know if you find out a mistake or have any suggestions!
-> If you find this resource helpful, please consider to star this repository and cite our research:
+## 🙋 引用
+
+如果该项目对你有帮助，欢迎 star，并引用如下：
 ```
 @inproceedings{ge2025t2s,
   title={T2S: High-resolution Time Series Generation with Text-to-Series Diffusion Models},
@@ -253,7 +189,7 @@ python evaluation.py --dataset_name 'ETTh1_24' --cfg_scale 9.0 --total_step 10
   year={2025}
 }
 ```
-## 🌟 Acknowledgement
 
-Our implementation adapts [Time-Series-Library](https://github.com/thuml/Time-Series-Library), [TSGBench](https://github.com/YihaoAng/TSGBench), [TOTEM](https://github.com/SaberaTalukder/TOTEM) and [Meta (Scalable Diffusion Models with Transformers)](https://github.com/facebookresearch/DiT) as the code base and have extensively modified it to our purposes. We thank the authors for sharing their implementations and related resources.
+## 🌟 致谢
 
+本项目基于 [Time-Series-Library](https://github.com/thuml/Time-Series-Library)、[TSGBench](https://github.com/YihaoAng/TSGBench)、[TOTEM](https://github.com/SaberaTalukder/TOTEM) 与 [Meta (Scalable Diffusion Models with Transformers)](https://github.com/facebookresearch/DiT) 并进行扩展实现，感谢相关作者的开源贡献。
